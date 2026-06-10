@@ -191,22 +191,36 @@ function Hero() {
 
 /* -------------------- SOCIAL PROOF -------------------- */
 function SocialProof() {
-  const logos = ["TOTVS", "Amigotech", "Bokus", "Grau técnico", "Locavel", "Capetro"];
+  const logos = [
+    "Amigotech", "Locavel", "RM Polímeros", "Bokus", "Autonorte", "Capetro",
+    "Foco", "Solplast", "Sport", "Vale - MonteRei", "Edilimp", "Divisão",
+    "Fruta Pluss", "Zero Um", "Provider", "Ultra",
+  ];
   return (
     <section className="w-full bg-[#ffd33d]">
-      <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 py-10 md:grid-cols-[1fr_2fr]">
-        <h3 className="text-lg font-bold text-black md:text-xl">
-          Empresas estruturadas com a tecnologia HUBOT
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 sm:px-6 py-5 md:flex-row md:gap-8 md:py-6">
+        <h3 className="shrink-0 text-center text-base font-bold text-black md:text-left md:text-lg md:max-w-xs">
+          Empresas estruturadas com a tecnologia HUBOT:
         </h3>
-        <div className="flex flex-wrap items-center justify-start gap-x-10 gap-y-4 md:justify-end">
-          {logos.map((l) => (
-            <span
-              key={l}
-              className="text-lg font-extrabold tracking-tight text-black/70 transition-opacity hover:text-black"
-            >
-              {l}
-            </span>
-          ))}
+        <div
+          className="relative flex-1 overflow-hidden w-full"
+          style={{
+            maskImage:
+              "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          }}
+        >
+          <div className="flex w-max animate-marquee whitespace-nowrap">
+            {[...logos, ...logos].map((l, i) => (
+              <span key={i} className="flex items-center">
+                <span className="mx-6 text-lg font-extrabold tracking-tight text-black/80">
+                  {l}
+                </span>
+                <span className="text-black/60">•</span>
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>
