@@ -72,7 +72,7 @@ function Navbar() {
     <header className="sticky top-0 z-40 w-full bg-black/95 backdrop-blur border-b border-white/5">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 py-4">
         <a href="#top" className="flex items-center" aria-label="HUBOT">
-          <img src={hubotWhite.url} alt="HUBOT" className="h-20 md:h-24 w-auto" />
+          <img src={hubotWhite.url} alt="HUBOT" className="h-36 md:h-44 w-auto -my-10" />
         </a>
         <ul className="hidden md:flex items-center gap-8">
           {links.map((l) => (
@@ -661,10 +661,10 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <a href="#top" className="flex items-center" aria-label="HUBOT">
-              <img src={hubotBlack.url} alt="HUBOT" className="h-20 w-auto" />
+            <a href="#top" className="flex items-center -ml-4 -mt-6" aria-label="HUBOT">
+              <img src={hubotBlack.url} alt="HUBOT" className="h-36 w-auto" />
             </a>
-            <p className="mt-4 text-sm leading-relaxed text-gray-600">
+            <p className="-mt-4 text-sm leading-relaxed text-gray-600">
               Conectamos empresas e clientes com tecnologia, dados e empatia. O futuro do atendimento
               passa por conversas que importam.
             </p>
