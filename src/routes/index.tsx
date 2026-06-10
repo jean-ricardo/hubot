@@ -603,16 +603,16 @@ function Pricing() {
           <p className="mt-4 text-gray-600">{"\n"}</p>
         </div>
 
-        <div className="mt-14 grid items-stretch gap-6 lg:grid-cols-4">
+        <div className="mt-14 grid items-stretch gap-8 lg:grid-cols-4">
           {plans.map((p) => {
             const hl = p.highlight;
             return (
               <div
                 key={p.name}
-                className={`relative flex flex-col rounded-2xl p-8 transition-all ${
+                className={`group relative flex flex-col rounded-2xl p-8 transition-all duration-300 ease-in-out ${
                   hl
-                    ? "bg-[#ffd33d] shadow-2xl lg:scale-105 lg:-translate-y-2"
-                    : "bg-white ring-1 ring-gray-200 hover:shadow-lg"
+                    ? "bg-[#ffd33d] shadow-lg lg:scale-105 hover:scale-110 hover:-translate-y-4 hover:shadow-2xl"
+                    : "bg-white border border-gray-200 hover:bg-[#ffd33d] hover:-translate-y-2 hover:shadow-xl"
                 }`}
               >
                 {hl && (
@@ -623,9 +623,9 @@ function Pricing() {
                 <h3 className={`text-lg font-bold ${hl ? "text-black" : "text-gray-900"}`}>
                   {p.name}
                 </h3>
-                <p className={`mt-1 text-sm ${hl ? "text-black/70" : "text-gray-500"}`}>{p.desc}</p>
+                <p className={`mt-1 text-sm ${hl ? "text-black/70" : "text-gray-500 group-hover:text-black/70"} transition-colors duration-300`}>{p.desc}</p>
                 <div className="mt-6 flex flex-col items-start">
-                  <span className={`text-5xl font-extrabold ${hl ? "text-black" : "text-gray-900"}`}>
+                  <span className={`text-5xl font-extrabold ${hl ? "text-black" : "text-gray-900 group-hover:text-black"} transition-colors duration-300`}>
                     {p.name === "Enterprise" ? "" : " \n "}
                     {p.price}
                   </span>
@@ -638,13 +638,13 @@ function Pricing() {
                     <li
                       key={f}
                       className={`flex items-start gap-2 text-sm ${
-                        hl ? "text-black" : "text-gray-700"
-                      }`}
+                        hl ? "text-black" : "text-gray-700 group-hover:text-black"
+                      } transition-colors duration-300`}
                     >
                       <Check
                         size={16}
                         strokeWidth={3}
-                        className={hl ? "mt-0.5 text-black" : "mt-0.5 text-green-600"}
+                        className={`mt-0.5 transition-colors duration-300 ${hl ? "text-black" : "text-green-600 group-hover:text-black"}`}
                       />
                       {f}
                     </li>
@@ -652,10 +652,10 @@ function Pricing() {
                 </ul>
                 <a
                   href="#demo"
-                  className={`mt-8 inline-flex w-full items-center justify-center rounded-md py-3 text-sm font-bold transition-all hover:-translate-y-0.5 hover:shadow-md ${
+                  className={`mt-8 inline-flex w-full items-center justify-center rounded-md py-3 text-sm font-bold transition-all duration-300 ${
                     hl
-                      ? "bg-black text-white"
-                      : "border-2 border-black bg-transparent text-black hover:bg-black hover:text-white"
+                      ? "bg-black text-white hover:shadow-[0_0_24px_rgba(0,0,0,0.45)] animate-pulse-ring"
+                      : "border-2 border-black bg-white text-black group-hover:bg-black group-hover:text-white group-hover:border-black"
                   }`}
                 >
                   Contratar
