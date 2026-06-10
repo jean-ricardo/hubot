@@ -22,6 +22,8 @@ import {
   Linkedin,
   Youtube,
 } from "lucide-react";
+import hubotWhite from "@/assets/hubot-white.png.asset.json";
+import hubotBlack from "@/assets/hubot-black.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
