@@ -159,7 +159,7 @@ function Hero() {
                 </div>
                 <div className="max-w-[80%] rounded-2xl rounded-tl-sm bg-white px-3 py-2 text-[10px] text-gray-900 shadow">
                   <div className="font-semibold">Plano Premium</div>
-                  <div className="text-gray-500">R$ 599/mês</div>
+                  <div className="text-gray-500">{"\n"} 599{"\n"}</div>
                 </div>
                 <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-sm bg-black px-3 py-2 text-[10px] text-white">
                   Perfeito! Vamos contratar.
@@ -585,7 +585,7 @@ function Pricing() {
     },
     {
       name: "Enterprise",
-      price: "1.299",
+      price: "A Consultar",
       desc: "Operações em larga escala",
       features: ["Atendentes ilimitados", "API dedicada", "SLA garantido", "Customizações", "CSM dedicado"],
     },
@@ -624,14 +624,14 @@ function Pricing() {
                   {p.name}
                 </h3>
                 <p className={`mt-1 text-sm ${hl ? "text-black/70" : "text-gray-500"}`}>{p.desc}</p>
-                <div className="mt-6 flex items-baseline gap-1">
-                  <span className={`text-sm font-semibold ${hl ? "text-black" : "text-gray-700"}`}>
-                    R$
-                  </span>
+                <div className="mt-6 flex flex-col items-start">
                   <span className={`text-5xl font-extrabold ${hl ? "text-black" : "text-gray-900"}`}>
+                    {p.name === "Enterprise" ? "" : " \n "}
                     {p.price}
                   </span>
-                  <span className={`text-sm ${hl ? "text-black/70" : "text-gray-500"}`}>/mês</span>
+                  <span className={`text-sm ${hl ? "text-black/70" : "text-gray-500"}`}>
+                    {"\n"}
+                  </span>
                 </div>
                 <ul className="mt-6 flex-1 space-y-3">
                   {p.features.map((f) => (
