@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
           "HUBOT é a plataforma SaaS que conecta sua empresa aos clientes via WhatsApp, Instagram e mais — com integração TOTVS, Kanban e múltiplos atendentes.",
       },
       { property: "og:title", content: "HUBOT — Atendimento ágil e inteligente" },
-      { property: "og:description", content: "A forma mais ágil e eficiente de conectar sua empresa aos clientes." },
+      { property: "og:description", content: "A forma mais ágil e eficiente de conectar sua empresa aos clientes" },
     ],
   }),
   component: Landing,
@@ -104,11 +104,11 @@ function Hero() {
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 md:py-24 lg:grid-cols-2">
         <div className="animate-fade-in-up">
           <span className="inline-block rounded-full border border-[#ffd33d] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#ffd33d]">
-            O futuro do atendimento já começou.
+            O FUTURO DO ATENDIMENTO JÁ COMEÇOU
           </span>
           <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
             A forma mais ágil e eficiente de{" "}
-            <span className="text-[#ffd33d]">conectar sua empresa</span> aos clientes.
+            <span className="text-[#ffd33d]">conectar sua empresa</span> aos clientes
           </h1>
           <p className="mt-6 max-w-xl text-lg text-gray-400">
             Centralize WhatsApp, Instagram, Telegram e Messenger num único painel. Integre com TOTVS,
@@ -191,7 +191,7 @@ function Hero() {
 
 /* -------------------- SOCIAL PROOF -------------------- */
 function SocialProof() {
-  const logos = ["TOTVS", "Bling", "Omie", "Conta Azul", "Sankhya", "Shopify"];
+  const logos = ["TOTVS", "Amigotech", "Bokus", "Grau técnico", "Locavel", "Capetro"];
   return (
     <section className="w-full bg-[#ffd33d]">
       <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 py-10 md:grid-cols-[1fr_2fr]">
@@ -315,7 +315,7 @@ function FeatureZ1() {
             Gestão de equipe
           </span>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            Múltiplos atendentes em um único número.
+            Múltiplos atendentes em um único número
           </h2>
           <p className="mt-4 text-lg text-gray-600">
             Sua equipe inteira atende pelo mesmo WhatsApp, com distribuição automática, transferência
@@ -347,7 +347,7 @@ function FeatureZ2() {
             Integração
           </span>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            Integração nativa com TOTVS.
+            Integração nativa com TOTVS
           </h2>
           <p className="mt-4 text-lg text-gray-600">
             Consulte pedidos, boletos, notas fiscais e estoque diretamente no chat. Seu atendimento
@@ -411,7 +411,7 @@ function FeatureZ3() {
             Organização
           </span>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            Kanban Integrado.
+            Kanban Integrado
           </h2>
           <p className="mt-4 text-lg text-gray-600">
             Visualize toda a jornada do cliente em colunas arrastáveis. Do primeiro contato ao
@@ -456,8 +456,9 @@ function AdvancedGrid() {
           <span className="text-sm font-bold uppercase tracking-wider text-amber-700">
             Recursos avançados
           </span>
-          <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            Tudo que sua operação precisa em um só lugar
+          <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl whitespace-pre-line">
+            Tudo que sua operação precisa{" "}
+            {"\n"}em um só lugar
           </h2>
         </div>
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -486,7 +487,7 @@ function DemoLead() {
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
         <div>
           <span className="text-sm font-bold uppercase tracking-wider text-[#ffd33d]">
-            Demonstração ao vivo
+            DEMONSTRAÇÃO{" "}
           </span>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
             Veja como funciona por dentro
@@ -581,11 +582,11 @@ function Pricing() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-20 md:py-24">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-bold uppercase tracking-wider text-amber-700">Planos</span>
-          <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            Estruture antes de crescer.{" "}
-            <span className="text-[#ffd33d]">Escolha seu plano.</span>
+          <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl whitespace-pre-line">
+            Estruture antes de crescer
+            {"\n"}Escolha seu plano
           </h2>
-          <p className="mt-4 text-gray-600">Sem fidelidade. Cancele quando quiser.</p>
+          <p className="mt-4 text-gray-600">{"\n"}</p>
         </div>
 
         <div className="mt-14 grid items-stretch gap-6 lg:grid-cols-4">
@@ -673,7 +674,7 @@ function Footer() {
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900">Links úteis</h4>
             <ul className="mt-4 space-y-2 text-sm text-gray-600">
-              {["Política de privacidade", "Termos de uso", "LGPD", "Status do sistema"].map((l) => (
+              {["Política de privacidade", "Termos de uso", "LGPD", "Política de segurança"].map((l) => (
                 <li key={l}>
                   <a href="#" className="transition-colors hover:text-black">
                     {l}
@@ -687,7 +688,7 @@ function Footer() {
             <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900">Contato</h4>
             <ul className="mt-4 space-y-3 text-sm text-gray-600">
               <li className="flex items-start gap-2">
-                <MapPin size={16} className="mt-0.5 shrink-0" /> Av. Paulista, 1000 — São Paulo/SP
+                <MapPin size={16} className="mt-0.5 shrink-0" /> Rua Bruno Veloso 603 - Recife. PE
               </li>
               <li className="flex items-start gap-2">
                 <Mail size={16} className="mt-0.5 shrink-0" /> contato@hubot.com.br
