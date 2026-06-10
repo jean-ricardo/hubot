@@ -22,6 +22,8 @@ import {
   Linkedin,
   Youtube,
 } from "lucide-react";
+import hubotWhite from "@/assets/hubot-white.png.asset.json";
+import hubotBlack from "@/assets/hubot-black.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -69,11 +71,8 @@ function Navbar() {
   return (
     <header className="sticky top-0 z-40 w-full bg-black/95 backdrop-blur border-b border-white/5">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 py-4">
-        <a href="#top" className="flex items-center gap-2 text-white font-extrabold tracking-tight">
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-[#ffd33d] text-black">
-            <Bot size={20} strokeWidth={2.5} />
-          </span>
-          <span className="text-xl">HUBOT</span>
+        <a href="#top" className="flex items-center" aria-label="HUBOT">
+          <img src={hubotWhite.url} alt="HUBOT" className="h-9 w-auto" />
         </a>
         <ul className="hidden md:flex items-center gap-8">
           {links.map((l) => (
@@ -662,11 +661,8 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <a href="#top" className="flex items-center gap-2 font-extrabold text-gray-900">
-              <span className="grid h-9 w-9 place-items-center rounded-lg bg-black text-[#ffd33d]">
-                <Bot size={20} strokeWidth={2.5} />
-              </span>
-              <span className="text-xl">HUBOT</span>
+            <a href="#top" className="flex items-center" aria-label="HUBOT">
+              <img src={hubotBlack.url} alt="HUBOT" className="h-10 w-auto" />
             </a>
             <p className="mt-4 text-sm leading-relaxed text-gray-600">
               Conectamos empresas e clientes com tecnologia, dados e empatia. O futuro do atendimento
