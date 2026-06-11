@@ -119,7 +119,7 @@ function Hero() {
         className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         style={{
           background:
-            "radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 211, 61, 0.15), transparent 40%)",
+            "radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 211, 61, 0.255), transparent 40%)",
         }}
       />
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 md:py-24 lg:grid-cols-2">
@@ -760,7 +760,7 @@ function Footer() {
           className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ease-in-out ${isHovered ? "opacity-100" : "opacity-0"}`}
           style={{
             background:
-              "radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(0,0,0,0.06), transparent 40%)",
+              "radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(0,0,0,0.09), transparent 40%)",
           }}
         />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-16">
