@@ -100,15 +100,18 @@ function Navbar() {
 
 /* -------------------- HERO -------------------- */
 function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
-  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    e.currentTarget.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
-    e.currentTarget.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!sectionRef.current) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   };
   return (
     <section
       id="top"
+      ref={sectionRef}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -118,12 +121,11 @@ function Hero() {
         aria-hidden
         className={`pointer-events-none absolute inset-0 z-0 transition-opacity duration-500 ease-in-out ${isHovered ? "opacity-100" : "opacity-0"}`}
         style={{
-          background: isHovered
-            ? "radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 211, 61, 0.15), transparent 40%)"
-            : "",
+          background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 211, 61, 0.15), transparent 40%)`,
         }}
       />
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 md:py-24 lg:grid-cols-2">
+
 
         <div className="animate-fade-in-up">
           <span className="inline-block rounded-full border border-[#ffd33d] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#ffd33d]">
