@@ -280,7 +280,7 @@ function SocialProof() {
             ))}
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
