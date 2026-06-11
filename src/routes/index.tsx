@@ -339,15 +339,15 @@ function PainSolution() {
 function VideoPlaceholder({ ratio = "16/9", label }: { ratio?: string; label: string }) {
   return (
     <div
-      className="relative w-full overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-black shadow-xl ring-1 ring-black/5"
+      className="group relative w-full overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-black shadow-xl ring-1 ring-black/5 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)]"
       style={{ aspectRatio: ratio }}
     >
       <div className="absolute inset-0 grid place-items-center">
-        <button className="group grid h-20 w-20 place-items-center rounded-full bg-[#ffd33d] text-black shadow-2xl transition-transform hover:scale-110">
+        <button className="grid h-20 w-20 place-items-center rounded-full bg-[#ffd33d] text-black shadow-2xl transition-all duration-300 ease-out group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(255,211,61,0.6)]">
           <Play size={32} fill="currentColor" className="ml-1" />
         </button>
       </div>
-      <div className="absolute bottom-4 left-4 rounded-md bg-black/60 px-3 py-1 text-xs font-medium text-white backdrop-blur">
+      <div className="absolute bottom-4 left-4 rounded-md bg-black/60 px-3 py-1 text-xs font-medium text-white backdrop-blur opacity-80 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:-translate-y-1">
         {label}
       </div>
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,211,61,0.15),transparent_50%)]" />
@@ -360,8 +360,8 @@ function FeatureZ1() {
     <section id="funcionalidades" className="bg-white">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
         <VideoPlaceholder label="Painel de atendimento ao vivo" />
-        <div>
-          <span className="inline-block rounded-full bg-[#fff8dc] px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-700">
+        <div className="group/text">
+          <span className="inline-block rounded-full bg-[#fff8dc] px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-700 transition-colors duration-300 ease-out group-hover/text:bg-[#ffe98a]">
             Gestão de equipe
           </span>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
@@ -377,8 +377,16 @@ function FeatureZ1() {
               "Transferência entre setores em 1 clique",
               "Relatórios individuais por atendente",
             ].map((i) => (
-              <li key={i} className="flex items-center gap-2 text-gray-700">
-                <Check size={18} className="text-green-600" strokeWidth={3} /> {i}
+              <li
+                key={i}
+                className="group/item flex items-center gap-2 text-gray-700 transition-all duration-300 ease-out hover:translate-x-2 hover:text-black"
+              >
+                <Check
+                  size={18}
+                  className="text-green-600 transition-transform duration-300 ease-out group-hover/item:scale-110"
+                  strokeWidth={3}
+                />{" "}
+                {i}
               </li>
             ))}
           </ul>
