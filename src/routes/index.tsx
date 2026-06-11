@@ -563,28 +563,31 @@ function FeatureZ3() {
   return (
     <section className="bg-white">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
-        <VideoPlaceholder ratio="4/3" label="Kanban de atendimentos" />
-        <div>
-          <span
-            className="inline-block rounded-full bg-[#fff8dc] px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-700 transition-colors duration-300 ease-out hover:bg-[#ffe98a] animate-fade-in-up"
-            style={{ animationDelay: "0ms" }}
-          >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: easeOut }}
+        >
+          <VideoPlaceholder ratio="4/3" label="Kanban de atendimentos" />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: easeOut }}
+        >
+          <span className="inline-block rounded-full bg-[#fff8dc] px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-700 transition-colors duration-300 ease-out hover:bg-[#ffe98a]">
             Organização
           </span>
-          <h2
-            className="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl animate-fade-in-up"
-            style={{ animationDelay: "100ms" }}
-          >
+          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
             Kanban Integrado
           </h2>
-          <p
-            className="mt-4 text-lg text-gray-600 animate-fade-in-up"
-            style={{ animationDelay: "200ms" }}
-          >
+          <p className="mt-4 text-lg text-gray-600">
             Visualize toda a jornada do cliente em colunas arrastáveis. Do primeiro contato ao
             fechamento, com automações de movimentação e alertas inteligentes.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
