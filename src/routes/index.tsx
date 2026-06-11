@@ -426,8 +426,21 @@ function FeatureZ1() {
   return (
     <section id="funcionalidades" className="bg-white">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
-        <VideoPlaceholder label="Painel de atendimento ao vivo" />
-        <div className="group/text">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: easeOut }}
+        >
+          <VideoPlaceholder label="Painel de atendimento ao vivo" />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: easeOut }}
+          className="group/text"
+        >
           <span className="inline-block rounded-full bg-[#fff8dc] px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-700 transition-colors duration-300 ease-out group-hover/text:bg-[#ffe98a]">
             Gestão de equipe
           </span>
@@ -438,26 +451,25 @@ function FeatureZ1() {
             Sua equipe inteira atende pelo mesmo WhatsApp, com distribuição automática, transferência
             entre setores e acompanhamento em tempo real do desempenho de cada agente.
           </p>
-          <ul className="mt-6 space-y-3">
+          <Stagger as="ul" staggerChildren={0.1} className="mt-6 space-y-3">
             {[
               "Distribuição inteligente de tickets",
               "Transferência entre setores em 1 clique",
               "Relatórios individuais por atendente",
             ].map((i) => (
-              <li
-                key={i}
-                className="group/item flex items-center gap-2 text-gray-700 transition-all duration-300 ease-out hover:translate-x-2 hover:text-black"
-              >
-                <Check
-                  size={18}
-                  className="text-green-600 transition-transform duration-300 ease-out group-hover/item:scale-110"
-                  strokeWidth={3}
-                />{" "}
-                {i}
-              </li>
+              <StaggerItem key={i} y={12}>
+                <div className="group/item flex items-center gap-2 text-gray-700 transition-all duration-300 ease-out hover:translate-x-2 hover:text-black">
+                  <Check
+                    size={18}
+                    className="text-green-600 transition-transform duration-300 ease-out group-hover/item:scale-110"
+                    strokeWidth={3}
+                  />{" "}
+                  {i}
+                </div>
+              </StaggerItem>
             ))}
-          </ul>
-        </div>
+          </Stagger>
+        </motion.div>
       </div>
     </section>
   );
