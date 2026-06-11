@@ -479,7 +479,13 @@ function FeatureZ2() {
   return (
     <section id="totvs" className="bg-gray-50">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
-        <div className="order-2 lg:order-1">
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: easeOut }}
+          className="order-2 lg:order-1"
+        >
           <span className="inline-block rounded-full bg-[#fff8dc] px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-700 transition-colors duration-300 ease-out hover:bg-[#ffe98a] hover:text-amber-900">
             Integração
           </span>
@@ -490,29 +496,34 @@ function FeatureZ2() {
             Consulte pedidos, boletos, notas fiscais e estoque diretamente no chat. Seu atendimento
             fala a mesma língua do seu ERP.
           </p>
-          <ul className="mt-6 space-y-3">
+          <Stagger staggerChildren={0.1} className="mt-6 space-y-3">
             {[
               "Consulta de pedidos em tempo real",
               "Emissão e envio de boletos pelo chat",
               "Atualização automática de cadastros",
               "Sincronização bidirecional",
             ].map((i) => (
-              <li
-                key={i}
-                className="group/item flex items-center gap-2 text-gray-700 transition-all duration-300 ease-out hover:translate-x-2 hover:text-black cursor-default"
-              >
-                <Check
-                  size={18}
-                  className="text-green-600 transition-transform duration-300 ease-out group-hover/item:scale-110"
-                  strokeWidth={3}
-                />{" "}
-                {i}
-              </li>
+              <StaggerItem key={i} y={12}>
+                <div className="group/item flex items-center gap-2 text-gray-700 transition-all duration-300 ease-out hover:translate-x-2 hover:text-black cursor-default">
+                  <Check
+                    size={18}
+                    className="text-green-600 transition-transform duration-300 ease-out group-hover/item:scale-110"
+                    strokeWidth={3}
+                  />{" "}
+                  {i}
+                </div>
+              </StaggerItem>
             ))}
-          </ul>
-        </div>
+          </Stagger>
+        </motion.div>
 
-        <div className="order-1 lg:order-2">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: easeOut }}
+          className="order-1 lg:order-2"
+        >
           <div className="group rounded-3xl bg-white p-10 shadow-xl ring-1 ring-gray-100 transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
             <div className="flex items-center justify-between">
               <div className="flex flex-col items-center gap-2">
@@ -542,7 +553,7 @@ function FeatureZ2() {
               <span className="ml-2 inline-block h-2 w-2 rounded-full bg-green-500 align-middle animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.8)]" />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
