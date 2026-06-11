@@ -549,13 +549,13 @@ function DemoLead() {
     <section id="demo" className="bg-black text-white">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
         <div>
-          <span className="text-sm font-bold uppercase tracking-wider text-[#ffd33d]">
+          <span className="inline-block animate-fade-in-up text-sm font-bold uppercase tracking-wider text-[#ffd33d]" style={{ animationDelay: "0ms" }}>
             DEMONSTRAÇÃO{" "}
           </span>
-          <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+          <h2 className="mt-3 animate-fade-in-up text-3xl font-extrabold tracking-tight sm:text-4xl" style={{ animationDelay: "100ms" }}>
             Veja como funciona por dentro
           </h2>
-          <p className="mt-4 text-gray-400">
+          <p className="mt-4 animate-fade-in-up text-gray-400" style={{ animationDelay: "200ms" }}>
             Um especialista mostra a plataforma na prática, com casos reais aplicados ao seu segmento.
           </p>
           <div id="video" className="mt-8">
@@ -565,7 +565,7 @@ function DemoLead() {
 
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="rounded-2xl bg-white p-8 text-gray-900 shadow-2xl"
+          className="rounded-2xl bg-white p-8 text-gray-900 shadow-2xl transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
         >
           <h3 className="text-2xl font-extrabold tracking-tight">Solicite uma demonstração</h3>
           <p className="mt-1 text-sm text-gray-500">Resposta em até 1 hora útil.</p>
@@ -583,14 +583,14 @@ function DemoLead() {
                 <input
                   type={f.type}
                   placeholder={f.placeholder}
-                  className="mt-1 w-full rounded-md bg-gray-50 border border-gray-200 px-4 py-3 text-sm outline-none transition-colors focus:border-[#ffd33d] focus:bg-white"
+                  className="mt-1 w-full rounded-md bg-gray-50 border border-gray-200 px-4 py-3 text-sm transition-colors duration-200 hover:bg-gray-100 focus:bg-white focus:border-[#ffd33d] focus:ring-2 focus:ring-[#ffd33d]/50 focus:outline-none"
                 />
               </div>
             ))}
           </div>
           <button
             type="submit"
-            className="mt-6 w-full rounded-md bg-[#ffd33d] py-4 text-sm font-extrabold uppercase tracking-wider text-black shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
+            className="mt-6 w-full rounded-md bg-[#ffd33d] py-4 text-sm font-extrabold uppercase tracking-wider text-black shadow-md transition-all duration-300 ease-out hover:bg-[#e6be2e] hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(255,211,61,0.3)] active:translate-y-0 active:shadow-none"
           >
             Solicitar
           </button>
@@ -598,6 +598,7 @@ function DemoLead() {
             Ao enviar, você concorda com nossa política de privacidade.
           </p>
         </form>
+
       </div>
     </section>
   );
