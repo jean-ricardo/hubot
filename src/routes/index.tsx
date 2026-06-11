@@ -401,7 +401,7 @@ function FeatureZ2() {
     <section id="totvs" className="bg-gray-50">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
         <div className="order-2 lg:order-1">
-          <span className="inline-block rounded-full bg-[#fff8dc] px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-700">
+          <span className="inline-block rounded-full bg-[#fff8dc] px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-700 transition-colors duration-300 ease-out hover:bg-[#ffe98a] hover:text-amber-900">
             Integração
           </span>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
@@ -418,39 +418,49 @@ function FeatureZ2() {
               "Atualização automática de cadastros",
               "Sincronização bidirecional",
             ].map((i) => (
-              <li key={i} className="flex items-center gap-2 text-gray-700">
-                <Check size={18} className="text-green-600" strokeWidth={3} /> {i}
+              <li
+                key={i}
+                className="group/item flex items-center gap-2 text-gray-700 transition-all duration-300 ease-out hover:translate-x-2 hover:text-black cursor-default"
+              >
+                <Check
+                  size={18}
+                  className="text-green-600 transition-transform duration-300 ease-out group-hover/item:scale-110"
+                  strokeWidth={3}
+                />{" "}
+                {i}
               </li>
             ))}
           </ul>
         </div>
 
         <div className="order-1 lg:order-2">
-          <div className="rounded-3xl bg-white p-10 shadow-xl ring-1 ring-gray-100">
+          <div className="group rounded-3xl bg-white p-10 shadow-xl ring-1 ring-gray-100 transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
             <div className="flex items-center justify-between">
               <div className="flex flex-col items-center gap-2">
-                <div className="grid h-20 w-20 place-items-center rounded-2xl bg-green-500 text-white shadow-lg">
+                <div className="grid h-20 w-20 place-items-center rounded-2xl bg-green-500 text-white shadow-lg animate-pulse-soft">
                   <MessageCircle size={36} />
                 </div>
                 <span className="text-sm font-semibold text-gray-700">WhatsApp</span>
               </div>
               <div className="relative flex-1 px-6">
                 <div className="h-0.5 w-full bg-gradient-to-r from-green-500 via-[#ffd33d] to-blue-600" />
-                <div className="absolute inset-0 grid place-items-center">
-                  <span className="grid h-10 w-10 place-items-center rounded-full bg-[#ffd33d] text-black shadow-md">
+                <div className="pointer-events-none absolute inset-0 flex items-center">
+                  <span className="animate-pingpong group-hover:[animation-duration:1.8s] grid h-10 w-10 place-items-center rounded-full bg-[#ffd33d] text-black shadow-md transition-shadow duration-300 group-hover:shadow-[0_0_15px_#ffd33d]">
                     <Bot size={20} />
                   </span>
                 </div>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <div className="grid h-20 w-20 place-items-center rounded-2xl bg-blue-600 text-white text-xs font-extrabold tracking-wide shadow-lg">
+                <div className="grid h-20 w-20 place-items-center rounded-2xl bg-blue-600 text-white text-xs font-extrabold tracking-wide shadow-lg animate-pulse-soft [animation-delay:1s]">
                   TOTVS
                 </div>
                 <span className="text-sm font-semibold text-gray-700">ERP</span>
               </div>
             </div>
             <div className="mt-8 rounded-xl bg-gray-50 p-4 text-center text-sm text-gray-600">
-              Dados sincronizados em <span className="font-bold text-gray-900">tempo real</span>
+              Dados sincronizados em{" "}
+              <span className="font-bold text-gray-900">tempo real</span>
+              <span className="ml-2 inline-block h-2 w-2 rounded-full bg-green-500 align-middle animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.8)]" />
             </div>
           </div>
         </div>
