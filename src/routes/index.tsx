@@ -297,7 +297,7 @@ function PainSolution() {
             ref={solutionRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={() => setSpot(null)}
-            className="group/sol relative overflow-hidden rounded-2xl bg-[#fff8dc] p-8 ring-1 ring-[#ffd33d]/30 shadow-md transition-all duration-500 ease-out hover:scale-105 hover:ring-2 hover:ring-[#ffd33d] hover:shadow-xl hover:shadow-yellow-500/20 group-hover/cards:opacity-50 group-hover/cards:scale-95 group-hover/cards:blur-[2px] hover:!opacity-100 hover:!scale-105 hover:!blur-0"
+            className="group/sol relative overflow-hidden rounded-2xl bg-[#fff8dc] p-8 ring-1 ring-[#ffd33d]/30 shadow-md transition-all duration-300 group-hover/cards:opacity-40 group-hover/cards:blur-[2px] hover:!opacity-100 hover:!blur-none hover:!scale-105 hover:ring-2 hover:ring-[#ffd33d] hover:shadow-xl hover:shadow-yellow-500/20"
           >
             {spot && (
               <div
