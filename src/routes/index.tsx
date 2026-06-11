@@ -568,9 +568,27 @@ function AdvancedGrid() {
 
 /* -------------------- DEMO LEAD -------------------- */
 function DemoLead() {
+  const demoRef = useRef<HTMLElement>(null);
+  const handleDemoMouseMove = (e: React.MouseEvent) => {
+    if (!demoRef.current) return;
+    const rect = demoRef.current.getBoundingClientRect();
+    demoRef.current.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+    demoRef.current.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+  };
   return (
-    <section id="demo" className="bg-black text-white">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
+    <section
+      id="demo"
+      ref={demoRef}
+      onMouseMove={handleDemoMouseMove}
+      className="group relative overflow-hidden bg-black text-white"
+    >
+      <div
+        className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        style={{
+          background: `radial-gradient(800px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(255, 211, 61, 0.12), transparent 40%)`,
+        }}
+      />
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
         <div>
           <span className="inline-block animate-fade-in-up text-sm font-bold uppercase tracking-wider text-[#ffd33d]" style={{ animationDelay: "0ms" }}>
             DEMONSTRAÇÃO{" "}
