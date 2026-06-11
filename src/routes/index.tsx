@@ -256,7 +256,7 @@ function SocialProof() {
   ];
   return (
     <section className="w-full bg-[#ffd33d]">
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 sm:px-6 py-5 md:flex-row md:gap-8 md:py-6">
+      <Reveal y={32} duration={0.6} className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 sm:px-6 py-5 md:flex-row md:gap-8 md:py-6">
         <h3 className="shrink-0 text-center text-base font-bold text-black md:text-left md:text-lg md:max-w-xs">
           Empresas estruturadas com a tecnologia HUBOT:
         </h3>
