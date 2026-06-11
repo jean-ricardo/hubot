@@ -162,7 +162,7 @@ function Hero() {
 
         {/* Right: phone mock with floating integrations */}
         <div className="relative mx-auto flex h-[520px] w-full max-w-md items-center justify-center">
-          <div className="relative h-[480px] w-[240px] rounded-[2.5rem] border-[10px] border-gray-800 bg-gray-900 shadow-2xl shadow-[#ffd33d]/10 animate-float">
+          <div className="relative h-[480px] w-[240px] rounded-[2.5rem] border-[10px] border-gray-800 bg-gray-900 shadow-2xl shadow-[#ffd33d]/10 transition-transform duration-500 ease-out hover:scale-[1.02] hover:-translate-y-2 hover:drop-shadow-[0_0_40px_rgba(255,211,61,0.35)]">
             <div className="absolute left-1/2 top-2 h-1.5 w-16 -translate-x-1/2 rounded-full bg-black" />
             <div className="m-2 mt-6 flex h-[calc(100%-3rem)] flex-col overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-[#ffd33d] via-amber-200 to-white">
               <div className="bg-black/90 px-3 py-2 text-[10px] font-semibold text-white flex items-center gap-2">
