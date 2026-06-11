@@ -100,29 +100,31 @@ function Navbar() {
 
 /* -------------------- HERO -------------------- */
 function Hero() {
-  const [spotlightOn, setSpotlightOn] = useState(false);
-  const handleMove = (e: React.MouseEvent<HTMLElement>) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    e.currentTarget.style.setProperty("--x", `${e.clientX - rect.left}px`);
-    e.currentTarget.style.setProperty("--y", `${e.clientY - rect.top}px`);
+    e.currentTarget.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+    e.currentTarget.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
   };
   return (
     <section
       id="top"
-      onMouseMove={handleMove}
-      onMouseEnter={() => setSpotlightOn(true)}
-      onMouseLeave={() => setSpotlightOn(false)}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       className="relative overflow-hidden bg-black text-white"
     >
       <div
         aria-hidden
-        className={`pointer-events-none absolute inset-0 z-0 transition-opacity duration-700 ease-in-out ${spotlightOn ? "opacity-100" : "opacity-0"}`}
+        className={`pointer-events-none absolute inset-0 z-0 transition-opacity duration-500 ease-in-out ${isHovered ? "opacity-100" : "opacity-0"}`}
         style={{
-          background:
-            "radial-gradient(800px circle at var(--x) var(--y), rgba(255, 211, 61, 0.12), transparent 40%)",
+          background: isHovered
+            ? "radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 211, 61, 0.15), transparent 40%)"
+            : "",
         }}
       />
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 md:py-24 lg:grid-cols-2">
+
         <div className="animate-fade-in-up">
           <span className="inline-block rounded-full border border-[#ffd33d] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#ffd33d]">
             O FUTURO DO ATENDIMENTO JÁ COMEÇOU
