@@ -328,7 +328,13 @@ function PainSolution() {
 
         <div className="group/cards mt-14 grid gap-8 lg:grid-cols-2">
           {/* Card 1 — Sem o HUBOT */}
-          <div className="group/pain relative rounded-2xl bg-gray-50 p-8 ring-1 ring-gray-100 transition-all duration-300 group-hover/cards:opacity-40 group-hover/cards:blur-[2px] hover:!opacity-100 hover:!blur-none hover:ring-red-200 hover:shadow-[0_20px_60px_-15px_rgba(239,68,68,0.25)]">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.7, ease: easeOut }}
+            className="group/pain relative rounded-2xl bg-gray-50 p-8 ring-1 ring-gray-100 transition-all duration-300 group-hover/cards:opacity-40 group-hover/cards:blur-[2px] hover:!opacity-100 hover:!blur-none hover:ring-red-200 hover:shadow-[0_20px_60px_-15px_rgba(239,68,68,0.25)]"
+          >
             <div className="mb-6 flex items-center gap-3">
               <span className="grid h-12 w-12 place-items-center rounded-xl bg-red-100 text-red-400">
                 <X size={26} strokeWidth={3} />
