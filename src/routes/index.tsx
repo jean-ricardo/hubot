@@ -1,4 +1,8 @@
 import { useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { Reveal, Stagger, StaggerItem } from "@/components/Reveal";
+
+const easeOut = [0.22, 1, 0.36, 1] as const;
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Bot,
