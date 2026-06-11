@@ -475,7 +475,7 @@ function FeatureZ3() {
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
         <VideoPlaceholder ratio="4/3" label="Kanban de atendimentos" />
         <div>
-          <span className="inline-block rounded-full bg-[#fff8dc] px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-700">
+          <span className="inline-block rounded-full bg-[#fff8dc] px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-700 transition-colors duration-300 ease-out hover:bg-[#ffe98a]">
             Organização
           </span>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
@@ -485,13 +485,13 @@ function FeatureZ3() {
             Visualize toda a jornada do cliente em colunas arrastáveis. Do primeiro contato ao
             fechamento, com automações de movimentação e alertas inteligentes.
           </p>
-          <div className="mt-8 grid grid-cols-3 gap-3">
+          <div className="group/kanban mt-8 grid grid-cols-3 gap-3">
             {["Novo", "Em andamento", "Fechado"].map((c, i) => (
               <div
                 key={c}
-                className={`rounded-lg p-3 text-center text-xs font-semibold ${
+                className={`cursor-grab rounded-lg p-3 text-center text-xs font-semibold transition-all duration-300 ease-out hover:!bg-[#ffd33d] hover:!text-black hover:!opacity-100 hover:!scale-105 hover:shadow-md group-hover/kanban:opacity-50 ${
                   i === 1
-                    ? "bg-[#ffd33d] text-black"
+                    ? "bg-[#ffd33d] text-black group-hover/kanban:bg-gray-100 group-hover/kanban:text-gray-700"
                     : "bg-gray-100 text-gray-700"
                 }`}
               >
