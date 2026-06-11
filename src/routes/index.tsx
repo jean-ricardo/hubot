@@ -763,24 +763,36 @@ function Pricing() {
   return (
     <section id="planos" className="bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-20 md:py-24">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal y={24} className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-bold uppercase tracking-wider text-amber-700">Planos</span>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl whitespace-pre-line">
             Estruture antes de crescer
             {"\n"}Escolha seu plano
           </h2>
           <p className="mt-4 text-gray-600">{"\n"}</p>
-        </div>
+        </Reveal>
 
         <div className="mt-14 grid items-stretch gap-8 lg:grid-cols-4">
-          {plans.map((p) => {
+          {plans.map((p, idx) => {
             const hl = p.highlight;
+            const initial = hl
+              ? { opacity: 0, scale: 0.9, y: 30 }
+              : { opacity: 0, y: 30, scale: 1 };
+            const animate = hl
+              ? { opacity: 1, scale: 1.05, y: 0 }
+              : { opacity: 1, y: 0, scale: 1 };
+            const delay = hl ? 0.5 : idx * 0.1;
+            const duration = hl ? 0.7 : 0.55;
             return (
-              <div
+              <motion.div
                 key={p.name}
-                className={`group relative flex flex-col rounded-2xl p-8 transition-all duration-300 ease-in-out ${
+                initial={initial}
+                whileInView={animate}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration, ease: easeOut, delay }}
+                className={`group relative flex flex-col rounded-2xl p-8 transition-[box-shadow,transform,background-color] duration-300 ease-in-out ${
                   hl
-                    ? "bg-[#ffd33d] shadow-lg lg:scale-105 hover:scale-110 hover:-translate-y-4 hover:shadow-2xl"
+                    ? "bg-[#ffd33d] shadow-lg hover:-translate-y-4 hover:shadow-2xl"
                     : "bg-white border border-gray-200 hover:bg-[#ffd33d] hover:-translate-y-2 hover:shadow-xl"
                 }`}
               >
@@ -829,7 +841,7 @@ function Pricing() {
                 >
                   Contratar
                 </a>
-              </div>
+              </motion.div>
             );
           })}
         </div>
