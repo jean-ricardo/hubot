@@ -99,6 +99,14 @@ html {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+@keyframes pingpong {
+  0% { transform: translateX(-42%); }
+  100% { transform: translateX(42%); }
+}
+@keyframes pulse-soft {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
 
 @utility animate-pulse-ring {
   animation: pulse-ring 2s cubic-bezier(0.66, 0, 0, 1) infinite;
