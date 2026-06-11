@@ -100,9 +100,29 @@ function Navbar() {
 
 /* -------------------- HERO -------------------- */
 function Hero() {
+  const [spotlightOn, setSpotlightOn] = useState(false);
+  const handleMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty("--x", `${e.clientX - rect.left}px`);
+    e.currentTarget.style.setProperty("--y", `${e.clientY - rect.top}px`);
+  };
   return (
-    <section id="top" className="bg-black text-white">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 md:py-24 lg:grid-cols-2">
+    <section
+      id="top"
+      onMouseMove={handleMove}
+      onMouseEnter={() => setSpotlightOn(true)}
+      onMouseLeave={() => setSpotlightOn(false)}
+      className="relative overflow-hidden bg-black text-white"
+    >
+      <div
+        aria-hidden
+        className={`pointer-events-none absolute inset-0 z-0 transition-opacity duration-700 ease-in-out ${spotlightOn ? "opacity-100" : "opacity-0"}`}
+        style={{
+          background:
+            "radial-gradient(800px circle at var(--x) var(--y), rgba(255, 211, 61, 0.12), transparent 40%)",
+        }}
+      />
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 md:py-24 lg:grid-cols-2">
         <div className="animate-fade-in-up">
           <span className="inline-block rounded-full border border-[#ffd33d] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#ffd33d]">
             O FUTURO DO ATENDIMENTO JÁ COMEÇOU
@@ -118,13 +138,13 @@ function Hero() {
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="#demo"
-              className="inline-flex items-center justify-center rounded-md bg-[#ffd33d] px-6 py-3.5 text-sm font-bold text-black shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
+              className="inline-flex items-center justify-center rounded-md bg-[#ffd33d] px-6 py-3.5 text-sm font-bold text-black shadow-md transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(255,211,61,0.4)]"
             >
               Teste 7 dias grátis
             </a>
             <a
               href="#video"
-              className="inline-flex items-center gap-2 rounded-md border border-white/40 bg-transparent px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-md border border-white/40 bg-transparent px-6 py-3.5 text-sm font-semibold text-white transition-all hover:border-[#ffd33d] hover:-translate-y-1 hover:bg-white/5"
             >
               <Play size={16} fill="currentColor" />
               Ver vídeo na prática
