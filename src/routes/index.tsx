@@ -360,8 +360,8 @@ function FeatureZ1() {
     <section id="funcionalidades" className="bg-white">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
         <VideoPlaceholder label="Painel de atendimento ao vivo" />
-        <div>
-          <span className="inline-block rounded-full bg-[#fff8dc] px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-700">
+        <div className="group/text">
+          <span className="inline-block rounded-full bg-[#fff8dc] px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-700 transition-colors duration-300 ease-out group-hover/text:bg-[#ffe98a]">
             Gestão de equipe
           </span>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
@@ -377,8 +377,16 @@ function FeatureZ1() {
               "Transferência entre setores em 1 clique",
               "Relatórios individuais por atendente",
             ].map((i) => (
-              <li key={i} className="flex items-center gap-2 text-gray-700">
-                <Check size={18} className="text-green-600" strokeWidth={3} /> {i}
+              <li
+                key={i}
+                className="group/item flex items-center gap-2 text-gray-700 transition-all duration-300 ease-out hover:translate-x-2 hover:text-black"
+              >
+                <Check
+                  size={18}
+                  className="text-green-600 transition-transform duration-300 ease-out group-hover/item:scale-110"
+                  strokeWidth={3}
+                />{" "}
+                {i}
               </li>
             ))}
           </ul>
