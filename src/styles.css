@@ -120,3 +120,9 @@ html {
 @utility animate-marquee {
   animation: marquee 40s linear infinite;
 }
+@utility animate-pingpong {
+  animation: pingpong 3.5s ease-in-out infinite alternate;
+}
+@utility animate-pulse-soft {
+  animation: pulse-soft 2.4s ease-in-out infinite;
+}
