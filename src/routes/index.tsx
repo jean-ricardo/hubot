@@ -588,7 +588,7 @@ function DemoLead() {
           background: `radial-gradient(800px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(255, 211, 61, 0.12), transparent 40%)`,
         }}
       />
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
         <div>
           <span className="inline-block animate-fade-in-up text-sm font-bold uppercase tracking-wider text-[#ffd33d]" style={{ animationDelay: "0ms" }}>
             DEMONSTRAÇÃO{" "}
