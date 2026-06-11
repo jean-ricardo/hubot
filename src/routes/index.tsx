@@ -721,6 +721,8 @@ function Pricing() {
 
 /* -------------------- FOOTER -------------------- */
 function Footer() {
+  const [isHovered, setIsHovered] = useState(false);
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     e.currentTarget.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
@@ -728,16 +730,16 @@ function Footer() {
   };
 
   return (
-    <footer>
+    <footer onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       {/* Main footer with light spotlight */}
-      <div
-        onMouseMove={handleMouseMove}
-        className="relative overflow-hidden bg-[#fff8dc] text-gray-800"
-        style={{
-          backgroundImage:
-            "radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.9), rgba(255,211,61,0.18) 30%, transparent 60%)",
-        }}
-      >
+      <div onMouseMove={handleMouseMove} className="relative overflow-hidden bg-[#fff8dc] text-gray-800">
+        <div
+          className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ease-in-out ${isHovered ? "opacity-100" : "opacity-0"}`}
+          style={{
+            background:
+              "radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(0,0,0,0.06), transparent 40%)",
+          }}
+        />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-16">
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
             <div>
@@ -806,14 +808,14 @@ function Footer() {
       </div>
 
       {/* Bottom bar with dark spotlight */}
-      <div
-        onMouseMove={handleMouseMove}
-        className="relative overflow-hidden bg-neutral-900"
-        style={{
-          backgroundImage:
-            "radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,211,61,0.15), transparent 70%)",
-        }}
-      >
+      <div onMouseMove={handleMouseMove} className="relative overflow-hidden bg-neutral-900">
+        <div
+          className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ease-in-out ${isHovered ? "opacity-100" : "opacity-0"}`}
+          style={{
+            background:
+              "radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,211,61,0.15), transparent 70%)",
+          }}
+        />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-6">
           <div className="flex flex-col items-start justify-between gap-4 text-xs text-gray-400 sm:flex-row sm:items-center">
             <p>© {new Date().getFullYear()} HUBOT — CNPJ 00.000.000/0001-00. Todos os direitos reservados.</p>
