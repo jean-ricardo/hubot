@@ -608,7 +608,7 @@ function AdvancedGrid() {
   return (
     <section className="bg-[#fff8dc]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-20 md:py-24">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal y={24} className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-bold uppercase tracking-wider text-amber-700">
             Recursos avançados
           </span>
@@ -616,21 +616,20 @@ function AdvancedGrid() {
             Tudo que sua operação precisa{" "}
             {"\n"}em um só lugar
           </h2>
-        </div>
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        </Reveal>
+        <Stagger staggerChildren={0.05} delayChildren={0.2} className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {cards.map(({ Icon, title, desc }) => (
-            <div
-              key={title}
-              className="group rounded-2xl bg-white p-6 shadow-sm border border-transparent transition-all duration-300 ease-out hover:border-[#ffd33d] hover:shadow-lg hover:shadow-yellow-500/10"
-            >
-              <span className="grid h-12 w-12 place-items-center rounded-xl bg-[#ffd33d] text-black transition-all duration-300 ease-out group-hover:scale-110 group-hover:rotate-3">
-                <Icon size={24} strokeWidth={2.2} />
-              </span>
-              <h3 className="mt-5 text-lg font-bold text-gray-800 transition-colors duration-300 ease-out group-hover:text-black">{title}</h3>
-              <p className="mt-2 text-sm text-gray-500 leading-relaxed opacity-90 transition-opacity duration-300 ease-out group-hover:opacity-100">{desc}</p>
-            </div>
+            <StaggerItem key={title} y={20}>
+              <div className="group h-full rounded-2xl bg-white p-6 shadow-sm border border-transparent transition-all duration-300 ease-out hover:border-[#ffd33d] hover:shadow-lg hover:shadow-yellow-500/10">
+                <span className="grid h-12 w-12 place-items-center rounded-xl bg-[#ffd33d] text-black transition-all duration-300 ease-out group-hover:scale-110 group-hover:rotate-3">
+                  <Icon size={24} strokeWidth={2.2} />
+                </span>
+                <h3 className="mt-5 text-lg font-bold text-gray-800 transition-colors duration-300 ease-out group-hover:text-black">{title}</h3>
+                <p className="mt-2 text-sm text-gray-500 leading-relaxed opacity-90 transition-opacity duration-300 ease-out group-hover:opacity-100">{desc}</p>
+              </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );
