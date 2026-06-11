@@ -528,13 +528,13 @@ function AdvancedGrid() {
           {cards.map(({ Icon, title, desc }) => (
             <div
               key={title}
-              className="group rounded-2xl bg-white p-6 shadow-sm ring-1 ring-black/5 transition-all hover:-translate-y-1 hover:shadow-xl"
+              className="group rounded-2xl bg-white p-6 shadow-sm border border-transparent transition-all duration-300 ease-out hover:border-[#ffd33d] hover:shadow-lg hover:shadow-yellow-500/10"
             >
-              <span className="grid h-12 w-12 place-items-center rounded-xl bg-[#ffd33d] text-black">
+              <span className="grid h-12 w-12 place-items-center rounded-xl bg-[#ffd33d] text-black transition-all duration-300 ease-out group-hover:scale-110 group-hover:rotate-3">
                 <Icon size={24} strokeWidth={2.2} />
               </span>
-              <h3 className="mt-5 text-lg font-bold text-gray-900">{title}</h3>
-              <p className="mt-2 text-sm text-gray-600 leading-relaxed">{desc}</p>
+              <h3 className="mt-5 text-lg font-bold text-gray-800 transition-colors duration-300 ease-out group-hover:text-black">{title}</h3>
+              <p className="mt-2 text-sm text-gray-500 leading-relaxed opacity-90 transition-opacity duration-300 ease-out group-hover:opacity-100">{desc}</p>
             </div>
           ))}
         </div>
