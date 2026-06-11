@@ -1,4 +1,8 @@
 import { useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { Reveal, Stagger, StaggerItem } from "@/components/Reveal";
+
+const easeOut = [0.22, 1, 0.36, 1] as const;
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Bot,
@@ -126,19 +130,39 @@ function Hero() {
 
 
 
-        <div className="animate-fade-in-up">
-          <span className="inline-block rounded-full border border-[#ffd33d] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#ffd33d]">
+        <div>
+          <motion.span
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: easeOut, delay: 0 }}
+            className="inline-block rounded-full border border-[#ffd33d] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#ffd33d]"
+          >
             O FUTURO DO ATENDIMENTO JÁ COMEÇOU
-          </span>
-          <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
+          </motion.span>
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: easeOut, delay: 0.1 }}
+            className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl"
+          >
             A forma mais ágil e eficiente de{" "}
             <span className="text-[#ffd33d]">conectar sua empresa</span> aos clientes
-          </h1>
-          <p className="mt-6 max-w-xl text-lg text-gray-400">
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: easeOut, delay: 0.2 }}
+            className="mt-6 max-w-xl text-lg text-gray-400"
+          >
             Centralize WhatsApp, Instagram, Telegram e Messenger num único painel. Integre com TOTVS,
             organize com Kanban e venda mais com múltiplos atendentes.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: easeOut, delay: 0.3 }}
+            className="mt-8 flex flex-wrap gap-4"
+          >
             <a
               href="#demo"
               className="inline-flex items-center justify-center rounded-md bg-[#ffd33d] px-6 py-3.5 text-sm font-bold text-black shadow-md transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(255,211,61,0.4)]"
@@ -152,19 +176,29 @@ function Hero() {
               <Play size={16} fill="currentColor" />
               Ver vídeo na prática
             </a>
-          </div>
-          <div className="mt-10 flex items-center gap-6 text-xs text-gray-500">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: easeOut, delay: 0.4 }}
+            className="mt-10 flex items-center gap-6 text-xs text-gray-500"
+          >
             <span className="flex items-center gap-2">
               <Check size={14} className="text-[#ffd33d]" /> Sem cartão de crédito
             </span>
             <span className="flex items-center gap-2">
               <Check size={14} className="text-[#ffd33d]" /> Suporte humano
             </span>
-          </div>
+          </motion.div>
         </div>
 
         {/* Right: phone mock with floating integrations */}
-        <div className="relative mx-auto flex h-[520px] w-full max-w-md items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: easeOut, delay: 0.2 }}
+          className="relative mx-auto flex h-[520px] w-full max-w-md items-center justify-center"
+        >
           <div className="relative h-[480px] w-[240px] rounded-[2.5rem] border-[10px] border-gray-800 bg-gray-900 shadow-2xl transition-transform duration-500 ease-out hover:scale-[1.02] hover:-translate-y-2 hover:drop-shadow-[0_0_40px_rgba(255,211,61,0.35)]">
             <div className="absolute left-1/2 top-2 h-1.5 w-16 -translate-x-1/2 rounded-full bg-black" />
             <div className="m-2 mt-6 flex h-[calc(100%-3rem)] flex-col overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-[#ffd33d] via-amber-200 to-white">
@@ -207,7 +241,7 @@ function Hero() {
               <Icon size={26} />
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -222,7 +256,7 @@ function SocialProof() {
   ];
   return (
     <section className="w-full bg-[#ffd33d]">
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 sm:px-6 py-5 md:flex-row md:gap-8 md:py-6">
+      <Reveal y={32} duration={0.6} className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 sm:px-6 py-5 md:flex-row md:gap-8 md:py-6">
         <h3 className="shrink-0 text-center text-base font-bold text-black md:text-left md:text-lg md:max-w-xs">
           Empresas estruturadas com a tecnologia HUBOT:
         </h3>
@@ -246,7 +280,7 @@ function SocialProof() {
             ))}
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -294,7 +328,13 @@ function PainSolution() {
 
         <div className="group/cards mt-14 grid gap-8 lg:grid-cols-2">
           {/* Card 1 — Sem o HUBOT */}
-          <div className="group/pain relative rounded-2xl bg-gray-50 p-8 ring-1 ring-gray-100 transition-all duration-300 group-hover/cards:opacity-40 group-hover/cards:blur-[2px] hover:!opacity-100 hover:!blur-none hover:ring-red-200 hover:shadow-[0_20px_60px_-15px_rgba(239,68,68,0.25)]">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.7, ease: easeOut }}
+            className="group/pain relative rounded-2xl bg-gray-50 p-8 ring-1 ring-gray-100 transition-all duration-300 group-hover/cards:opacity-40 group-hover/cards:blur-[2px] hover:!opacity-100 hover:!blur-none hover:ring-red-200 hover:shadow-[0_20px_60px_-15px_rgba(239,68,68,0.25)]"
+          >
             <div className="mb-6 flex items-center gap-3">
               <span className="grid h-12 w-12 place-items-center rounded-xl bg-red-100 text-red-400">
                 <X size={26} strokeWidth={3} />
@@ -313,13 +353,17 @@ function PainSolution() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Card 2 — Com o HUBOT (Spotlight) */}
-          <div
+          <motion.div
             ref={solutionRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={() => setSpot(null)}
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.7, ease: easeOut }}
             className="group/sol relative overflow-hidden rounded-2xl bg-[#fff8dc] p-8 ring-1 ring-[#ffd33d]/30 shadow-md transition-all duration-300 group-hover/cards:opacity-40 group-hover/cards:blur-[2px] hover:!opacity-100 hover:!blur-none hover:!scale-105 hover:ring-2 hover:ring-[#ffd33d] hover:shadow-xl hover:shadow-yellow-500/20"
           >
             {spot && (
@@ -351,7 +395,7 @@ function PainSolution() {
                 ))}
               </ul>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -382,8 +426,21 @@ function FeatureZ1() {
   return (
     <section id="funcionalidades" className="bg-white">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
-        <VideoPlaceholder label="Painel de atendimento ao vivo" />
-        <div className="group/text">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: easeOut }}
+        >
+          <VideoPlaceholder label="Painel de atendimento ao vivo" />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: easeOut }}
+          className="group/text"
+        >
           <span className="inline-block rounded-full bg-[#fff8dc] px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-700 transition-colors duration-300 ease-out group-hover/text:bg-[#ffe98a]">
             Gestão de equipe
           </span>
@@ -394,26 +451,25 @@ function FeatureZ1() {
             Sua equipe inteira atende pelo mesmo WhatsApp, com distribuição automática, transferência
             entre setores e acompanhamento em tempo real do desempenho de cada agente.
           </p>
-          <ul className="mt-6 space-y-3">
+          <Stagger staggerChildren={0.1} className="mt-6 space-y-3">
             {[
               "Distribuição inteligente de tickets",
               "Transferência entre setores em 1 clique",
               "Relatórios individuais por atendente",
             ].map((i) => (
-              <li
-                key={i}
-                className="group/item flex items-center gap-2 text-gray-700 transition-all duration-300 ease-out hover:translate-x-2 hover:text-black"
-              >
-                <Check
-                  size={18}
-                  className="text-green-600 transition-transform duration-300 ease-out group-hover/item:scale-110"
-                  strokeWidth={3}
-                />{" "}
-                {i}
-              </li>
+              <StaggerItem key={i} y={12}>
+                <div className="group/item flex items-center gap-2 text-gray-700 transition-all duration-300 ease-out hover:translate-x-2 hover:text-black">
+                  <Check
+                    size={18}
+                    className="text-green-600 transition-transform duration-300 ease-out group-hover/item:scale-110"
+                    strokeWidth={3}
+                  />{" "}
+                  {i}
+                </div>
+              </StaggerItem>
             ))}
-          </ul>
-        </div>
+          </Stagger>
+        </motion.div>
       </div>
     </section>
   );
@@ -423,7 +479,13 @@ function FeatureZ2() {
   return (
     <section id="totvs" className="bg-gray-50">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
-        <div className="order-2 lg:order-1">
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: easeOut }}
+          className="order-2 lg:order-1"
+        >
           <span className="inline-block rounded-full bg-[#fff8dc] px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-700 transition-colors duration-300 ease-out hover:bg-[#ffe98a] hover:text-amber-900">
             Integração
           </span>
@@ -434,29 +496,34 @@ function FeatureZ2() {
             Consulte pedidos, boletos, notas fiscais e estoque diretamente no chat. Seu atendimento
             fala a mesma língua do seu ERP.
           </p>
-          <ul className="mt-6 space-y-3">
+          <Stagger staggerChildren={0.1} className="mt-6 space-y-3">
             {[
               "Consulta de pedidos em tempo real",
               "Emissão e envio de boletos pelo chat",
               "Atualização automática de cadastros",
               "Sincronização bidirecional",
             ].map((i) => (
-              <li
-                key={i}
-                className="group/item flex items-center gap-2 text-gray-700 transition-all duration-300 ease-out hover:translate-x-2 hover:text-black cursor-default"
-              >
-                <Check
-                  size={18}
-                  className="text-green-600 transition-transform duration-300 ease-out group-hover/item:scale-110"
-                  strokeWidth={3}
-                />{" "}
-                {i}
-              </li>
+              <StaggerItem key={i} y={12}>
+                <div className="group/item flex items-center gap-2 text-gray-700 transition-all duration-300 ease-out hover:translate-x-2 hover:text-black cursor-default">
+                  <Check
+                    size={18}
+                    className="text-green-600 transition-transform duration-300 ease-out group-hover/item:scale-110"
+                    strokeWidth={3}
+                  />{" "}
+                  {i}
+                </div>
+              </StaggerItem>
             ))}
-          </ul>
-        </div>
+          </Stagger>
+        </motion.div>
 
-        <div className="order-1 lg:order-2">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: easeOut }}
+          className="order-1 lg:order-2"
+        >
           <div className="group rounded-3xl bg-white p-10 shadow-xl ring-1 ring-gray-100 transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
             <div className="flex items-center justify-between">
               <div className="flex flex-col items-center gap-2">
@@ -486,7 +553,7 @@ function FeatureZ2() {
               <span className="ml-2 inline-block h-2 w-2 rounded-full bg-green-500 align-middle animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.8)]" />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -496,28 +563,31 @@ function FeatureZ3() {
   return (
     <section className="bg-white">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
-        <VideoPlaceholder ratio="4/3" label="Kanban de atendimentos" />
-        <div>
-          <span
-            className="inline-block rounded-full bg-[#fff8dc] px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-700 transition-colors duration-300 ease-out hover:bg-[#ffe98a] animate-fade-in-up"
-            style={{ animationDelay: "0ms" }}
-          >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: easeOut }}
+        >
+          <VideoPlaceholder ratio="4/3" label="Kanban de atendimentos" />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: easeOut }}
+        >
+          <span className="inline-block rounded-full bg-[#fff8dc] px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-700 transition-colors duration-300 ease-out hover:bg-[#ffe98a]">
             Organização
           </span>
-          <h2
-            className="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl animate-fade-in-up"
-            style={{ animationDelay: "100ms" }}
-          >
+          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
             Kanban Integrado
           </h2>
-          <p
-            className="mt-4 text-lg text-gray-600 animate-fade-in-up"
-            style={{ animationDelay: "200ms" }}
-          >
+          <p className="mt-4 text-lg text-gray-600">
             Visualize toda a jornada do cliente em colunas arrastáveis. Do primeiro contato ao
             fechamento, com automações de movimentação e alertas inteligentes.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -538,7 +608,7 @@ function AdvancedGrid() {
   return (
     <section className="bg-[#fff8dc]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-20 md:py-24">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal y={24} className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-bold uppercase tracking-wider text-amber-700">
             Recursos avançados
           </span>
@@ -546,21 +616,20 @@ function AdvancedGrid() {
             Tudo que sua operação precisa{" "}
             {"\n"}em um só lugar
           </h2>
-        </div>
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        </Reveal>
+        <Stagger staggerChildren={0.05} delayChildren={0.2} className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {cards.map(({ Icon, title, desc }) => (
-            <div
-              key={title}
-              className="group rounded-2xl bg-white p-6 shadow-sm border border-transparent transition-all duration-300 ease-out hover:border-[#ffd33d] hover:shadow-lg hover:shadow-yellow-500/10"
-            >
-              <span className="grid h-12 w-12 place-items-center rounded-xl bg-[#ffd33d] text-black transition-all duration-300 ease-out group-hover:scale-110 group-hover:rotate-3">
-                <Icon size={24} strokeWidth={2.2} />
-              </span>
-              <h3 className="mt-5 text-lg font-bold text-gray-800 transition-colors duration-300 ease-out group-hover:text-black">{title}</h3>
-              <p className="mt-2 text-sm text-gray-500 leading-relaxed opacity-90 transition-opacity duration-300 ease-out group-hover:opacity-100">{desc}</p>
-            </div>
+            <StaggerItem key={title} y={20}>
+              <div className="group h-full rounded-2xl bg-white p-6 shadow-sm border border-transparent transition-all duration-300 ease-out hover:border-[#ffd33d] hover:shadow-lg hover:shadow-yellow-500/10">
+                <span className="grid h-12 w-12 place-items-center rounded-xl bg-[#ffd33d] text-black transition-all duration-300 ease-out group-hover:scale-110 group-hover:rotate-3">
+                  <Icon size={24} strokeWidth={2.2} />
+                </span>
+                <h3 className="mt-5 text-lg font-bold text-gray-800 transition-colors duration-300 ease-out group-hover:text-black">{title}</h3>
+                <p className="mt-2 text-sm text-gray-500 leading-relaxed opacity-90 transition-opacity duration-300 ease-out group-hover:opacity-100">{desc}</p>
+              </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );
@@ -589,22 +658,31 @@ function DemoLead() {
         }}
       />
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
-        <div>
-          <span className="inline-block animate-fade-in-up text-sm font-bold uppercase tracking-wider text-[#ffd33d]" style={{ animationDelay: "0ms" }}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: easeOut }}
+        >
+          <span className="inline-block text-sm font-bold uppercase tracking-wider text-[#ffd33d]">
             DEMONSTRAÇÃO{" "}
           </span>
-          <h2 className="mt-3 animate-fade-in-up text-3xl font-extrabold tracking-tight sm:text-4xl" style={{ animationDelay: "100ms" }}>
+          <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
             Veja como funciona por dentro
           </h2>
-          <p className="mt-4 animate-fade-in-up text-gray-400" style={{ animationDelay: "200ms" }}>
+          <p className="mt-4 text-gray-400">
             Um especialista mostra a plataforma na prática, com casos reais aplicados ao seu segmento.
           </p>
           <div id="video" className="mt-8">
             <VideoPlaceholder label="Tour completo da plataforma" />
           </div>
-        </div>
+        </motion.div>
 
-        <form
+        <motion.form
+          initial={{ opacity: 0, y: 48 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.75, ease: easeOut, delay: 0.15 }}
           onSubmit={(e) => e.preventDefault()}
           className="rounded-2xl bg-white p-8 text-gray-900 shadow-2xl transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
         >
@@ -638,7 +716,7 @@ function DemoLead() {
           <p className="mt-3 text-center text-xs text-gray-500">
             Ao enviar, você concorda com nossa política de privacidade.
           </p>
-        </form>
+        </motion.form>
 
       </div>
     </section>
@@ -685,24 +763,36 @@ function Pricing() {
   return (
     <section id="planos" className="bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-20 md:py-24">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal y={24} className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-bold uppercase tracking-wider text-amber-700">Planos</span>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl whitespace-pre-line">
             Estruture antes de crescer
             {"\n"}Escolha seu plano
           </h2>
           <p className="mt-4 text-gray-600">{"\n"}</p>
-        </div>
+        </Reveal>
 
         <div className="mt-14 grid items-stretch gap-8 lg:grid-cols-4">
-          {plans.map((p) => {
+          {plans.map((p, idx) => {
             const hl = p.highlight;
+            const initial = hl
+              ? { opacity: 0, scale: 0.9, y: 30 }
+              : { opacity: 0, y: 30, scale: 1 };
+            const animate = hl
+              ? { opacity: 1, scale: 1.05, y: 0 }
+              : { opacity: 1, y: 0, scale: 1 };
+            const delay = hl ? 0.5 : idx * 0.1;
+            const duration = hl ? 0.7 : 0.55;
             return (
-              <div
+              <motion.div
                 key={p.name}
-                className={`group relative flex flex-col rounded-2xl p-8 transition-all duration-300 ease-in-out ${
+                initial={initial}
+                whileInView={animate}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration, ease: easeOut, delay }}
+                className={`group relative flex flex-col rounded-2xl p-8 transition-[box-shadow,transform,background-color] duration-300 ease-in-out ${
                   hl
-                    ? "bg-[#ffd33d] shadow-lg lg:scale-105 hover:scale-110 hover:-translate-y-4 hover:shadow-2xl"
+                    ? "bg-[#ffd33d] shadow-lg hover:-translate-y-4 hover:shadow-2xl"
                     : "bg-white border border-gray-200 hover:bg-[#ffd33d] hover:-translate-y-2 hover:shadow-xl"
                 }`}
               >
@@ -751,7 +841,7 @@ function Pricing() {
                 >
                   Contratar
                 </a>
-              </div>
+              </motion.div>
             );
           })}
         </div>
