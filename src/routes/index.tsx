@@ -760,7 +760,7 @@ function Footer() {
           className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ease-in-out ${isHovered ? "opacity-100" : "opacity-0"}`}
           style={{
             background:
-              "radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(0,0,0,0.06), transparent 40%)",
+              "radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(0,0,0,0.09), transparent 40%)",
           }}
         />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-16">
