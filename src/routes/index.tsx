@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Bot,
@@ -244,10 +245,19 @@ function PainSolution() {
     "Integração nativa com TOTVS e ERPs",
   ];
 
+  const [spot, setSpot] = useState<{ x: number; y: number } | null>(null);
+  const solutionRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = solutionRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    setSpot({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
   return (
-    <section id="sobre" className="bg-white">
+    <section id="sobre" className="bg-[#f9fafb]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-20 md:py-24">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-2xl text-center animate-fade-in-up">
           <span className="text-sm font-bold uppercase tracking-wider text-[#ffd33d]">
             Evolua seu atendimento
           </span>
@@ -259,17 +269,22 @@ function PainSolution() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-2">
-          <div className="rounded-2xl bg-gray-50 p-8 ring-1 ring-gray-100">
+        <div className="group/cards mt-14 grid gap-8 lg:grid-cols-2">
+          {/* Card 1 — Sem o HUBOT */}
+          <div className="group/pain relative rounded-2xl bg-gray-50 p-8 ring-1 ring-gray-100 transition-all duration-500 ease-out hover:scale-[1.02] hover:ring-red-200 hover:shadow-[0_20px_60px_-15px_rgba(239,68,68,0.25)] group-hover/cards:opacity-50 group-hover/cards:scale-95 group-hover/cards:blur-[2px] hover:!opacity-100 hover:!scale-[1.02] hover:!blur-0">
             <div className="mb-6 flex items-center gap-3">
-              <span className="grid h-12 w-12 place-items-center rounded-xl bg-red-100 text-red-600">
+              <span className="grid h-12 w-12 place-items-center rounded-xl bg-red-100 text-red-400">
                 <X size={26} strokeWidth={3} />
               </span>
               <h3 className="text-2xl font-bold text-gray-900">Sem o HUBOT</h3>
             </div>
             <ul className="space-y-4">
-              {pains.map((p) => (
-                <li key={p} className="flex items-start gap-3 text-gray-700">
+              {pains.map((p, i) => (
+                <li
+                  key={p}
+                  className="flex items-start gap-3 text-gray-700 transition-transform duration-300 ease-out group-hover/pain:translate-x-1"
+                  style={{ transitionDelay: `${i * 60}ms` }}
+                >
                   <X size={18} className="mt-1 shrink-0 text-red-500" strokeWidth={3} />
                   <span>{p}</span>
                 </li>
@@ -277,21 +292,42 @@ function PainSolution() {
             </ul>
           </div>
 
-          <div className="rounded-2xl bg-[#fff8dc] p-8 ring-1 ring-[#ffd33d]/30 shadow-md">
-            <div className="mb-6 flex items-center gap-3">
-              <span className="grid h-12 w-12 place-items-center rounded-xl bg-[#ffd33d] text-black">
-                <Check size={26} strokeWidth={3} />
-              </span>
-              <h3 className="text-2xl font-bold text-gray-900">Com o HUBOT</h3>
+          {/* Card 2 — Com o HUBOT (Spotlight) */}
+          <div
+            ref={solutionRef}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={() => setSpot(null)}
+            className="group/sol relative overflow-hidden rounded-2xl bg-[#fff8dc] p-8 ring-1 ring-[#ffd33d]/30 shadow-md transition-all duration-500 ease-out hover:scale-105 hover:ring-2 hover:ring-[#ffd33d] hover:shadow-xl hover:shadow-yellow-500/20 group-hover/cards:opacity-50 group-hover/cards:scale-95 group-hover/cards:blur-[2px] hover:!opacity-100 hover:!scale-105 hover:!blur-0"
+          >
+            {spot && (
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 transition-opacity duration-300"
+                style={{
+                  background: `radial-gradient(360px circle at ${spot.x}px ${spot.y}px, rgba(255,211,61,0.25), transparent 70%)`,
+                }}
+              />
+            )}
+            <div className="relative">
+              <div className="mb-6 flex items-center gap-3">
+                <span className="grid h-12 w-12 place-items-center rounded-xl bg-[#ffd33d] text-black">
+                  <Check size={26} strokeWidth={3} />
+                </span>
+                <h3 className="text-2xl font-bold text-gray-900">Com o HUBOT</h3>
+              </div>
+              <ul className="space-y-4">
+                {solutions.map((s, i) => (
+                  <li
+                    key={s}
+                    className="flex items-start gap-3 text-gray-700 transition-all duration-300 ease-out group-hover/sol:translate-x-2 group-hover/sol:text-gray-900"
+                    style={{ transitionDelay: `${i * 60}ms` }}
+                  >
+                    <Check size={18} className="mt-1 shrink-0 text-green-600" strokeWidth={3} />
+                    <span>{s}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="space-y-4">
-              {solutions.map((s) => (
-                <li key={s} className="flex items-start gap-3 text-gray-800">
-                  <Check size={18} className="mt-1 shrink-0 text-green-600" strokeWidth={3} />
-                  <span>{s}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>
