@@ -451,7 +451,7 @@ function FeatureZ1() {
             Sua equipe inteira atende pelo mesmo WhatsApp, com distribuição automática, transferência
             entre setores e acompanhamento em tempo real do desempenho de cada agente.
           </p>
-          <Stagger as="ul" staggerChildren={0.1} className="mt-6 space-y-3">
+          <Stagger staggerChildren={0.1} className="mt-6 space-y-3">
             {[
               "Distribuição inteligente de tickets",
               "Transferência entre setores em 1 clique",
