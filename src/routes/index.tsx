@@ -658,22 +658,31 @@ function DemoLead() {
         }}
       />
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
-        <div>
-          <span className="inline-block animate-fade-in-up text-sm font-bold uppercase tracking-wider text-[#ffd33d]" style={{ animationDelay: "0ms" }}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: easeOut }}
+        >
+          <span className="inline-block text-sm font-bold uppercase tracking-wider text-[#ffd33d]">
             DEMONSTRAÇÃO{" "}
           </span>
-          <h2 className="mt-3 animate-fade-in-up text-3xl font-extrabold tracking-tight sm:text-4xl" style={{ animationDelay: "100ms" }}>
+          <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
             Veja como funciona por dentro
           </h2>
-          <p className="mt-4 animate-fade-in-up text-gray-400" style={{ animationDelay: "200ms" }}>
+          <p className="mt-4 text-gray-400">
             Um especialista mostra a plataforma na prática, com casos reais aplicados ao seu segmento.
           </p>
           <div id="video" className="mt-8">
             <VideoPlaceholder label="Tour completo da plataforma" />
           </div>
-        </div>
+        </motion.div>
 
-        <form
+        <motion.form
+          initial={{ opacity: 0, y: 48 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.75, ease: easeOut, delay: 0.15 }}
           onSubmit={(e) => e.preventDefault()}
           className="rounded-2xl bg-white p-8 text-gray-900 shadow-2xl transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
         >
@@ -707,7 +716,7 @@ function DemoLead() {
           <p className="mt-3 text-center text-xs text-gray-500">
             Ao enviar, você concorda com nossa política de privacidade.
           </p>
-        </form>
+        </motion.form>
 
       </div>
     </section>
