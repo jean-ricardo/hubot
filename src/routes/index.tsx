@@ -130,19 +130,39 @@ function Hero() {
 
 
 
-        <div className="animate-fade-in-up">
-          <span className="inline-block rounded-full border border-[#ffd33d] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#ffd33d]">
+        <div>
+          <motion.span
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: easeOut, delay: 0 }}
+            className="inline-block rounded-full border border-[#ffd33d] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#ffd33d]"
+          >
             O FUTURO DO ATENDIMENTO JÁ COMEÇOU
-          </span>
-          <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
+          </motion.span>
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: easeOut, delay: 0.1 }}
+            className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl"
+          >
             A forma mais ágil e eficiente de{" "}
             <span className="text-[#ffd33d]">conectar sua empresa</span> aos clientes
-          </h1>
-          <p className="mt-6 max-w-xl text-lg text-gray-400">
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: easeOut, delay: 0.2 }}
+            className="mt-6 max-w-xl text-lg text-gray-400"
+          >
             Centralize WhatsApp, Instagram, Telegram e Messenger num único painel. Integre com TOTVS,
             organize com Kanban e venda mais com múltiplos atendentes.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: easeOut, delay: 0.3 }}
+            className="mt-8 flex flex-wrap gap-4"
+          >
             <a
               href="#demo"
               className="inline-flex items-center justify-center rounded-md bg-[#ffd33d] px-6 py-3.5 text-sm font-bold text-black shadow-md transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(255,211,61,0.4)]"
@@ -156,19 +176,29 @@ function Hero() {
               <Play size={16} fill="currentColor" />
               Ver vídeo na prática
             </a>
-          </div>
-          <div className="mt-10 flex items-center gap-6 text-xs text-gray-500">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: easeOut, delay: 0.4 }}
+            className="mt-10 flex items-center gap-6 text-xs text-gray-500"
+          >
             <span className="flex items-center gap-2">
               <Check size={14} className="text-[#ffd33d]" /> Sem cartão de crédito
             </span>
             <span className="flex items-center gap-2">
               <Check size={14} className="text-[#ffd33d]" /> Suporte humano
             </span>
-          </div>
+          </motion.div>
         </div>
 
         {/* Right: phone mock with floating integrations */}
-        <div className="relative mx-auto flex h-[520px] w-full max-w-md items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: easeOut, delay: 0.2 }}
+          className="relative mx-auto flex h-[520px] w-full max-w-md items-center justify-center"
+        >
           <div className="relative h-[480px] w-[240px] rounded-[2.5rem] border-[10px] border-gray-800 bg-gray-900 shadow-2xl transition-transform duration-500 ease-out hover:scale-[1.02] hover:-translate-y-2 hover:drop-shadow-[0_0_40px_rgba(255,211,61,0.35)]">
             <div className="absolute left-1/2 top-2 h-1.5 w-16 -translate-x-1/2 rounded-full bg-black" />
             <div className="m-2 mt-6 flex h-[calc(100%-3rem)] flex-col overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-[#ffd33d] via-amber-200 to-white">
@@ -211,7 +241,7 @@ function Hero() {
               <Icon size={26} />
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
