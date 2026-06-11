@@ -721,82 +721,119 @@ function Pricing() {
 
 /* -------------------- FOOTER -------------------- */
 function Footer() {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+    e.currentTarget.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+  };
+
   return (
-    <footer className="bg-[#fff8dc] text-gray-800">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <a href="#top" className="flex items-center -ml-4 -mt-6" aria-label="HUBOT">
-              <img src={hubotBlack.url} alt="HUBOT" className="h-36 w-auto" />
-            </a>
-            <p className="-mt-4 text-sm leading-relaxed text-gray-600">
-              Conectamos empresas e clientes com tecnologia, dados e empatia. O futuro do atendimento
-              passa por conversas que importam.
-            </p>
-          </div>
+    <footer>
+      {/* Main footer with light spotlight */}
+      <div
+        onMouseMove={handleMouseMove}
+        className="relative overflow-hidden bg-[#fff8dc] text-gray-800"
+        style={{
+          backgroundImage:
+            "radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.9), rgba(255,211,61,0.18) 30%, transparent 60%)",
+        }}
+      >
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-16">
+          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+            <div>
+              <a href="#top" className="flex items-center -ml-4 -mt-6" aria-label="HUBOT">
+                <img src={hubotBlack.url} alt="HUBOT" className="h-36 w-auto" />
+              </a>
+              <p className="-mt-4 text-sm leading-relaxed text-gray-700">
+                Conectamos empresas e clientes com tecnologia, dados e empatia. O futuro do atendimento
+                passa por conversas que importam.
+              </p>
+            </div>
 
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900">Links úteis</h4>
-            <ul className="mt-4 space-y-2 text-sm text-gray-600">
-              {["Política de privacidade", "Termos de uso", "LGPD", "Política de segurança"].map((l) => (
-                <li key={l}>
-                  <a href="#" className="transition-colors hover:text-black">
-                    {l}
-                  </a>
+            <div>
+              <h4 className="text-sm font-bold uppercase tracking-wider text-black">Links úteis</h4>
+              <ul className="mt-4 space-y-2 text-sm text-gray-700">
+                {["Política de privacidade", "Termos de uso", "LGPD", "Política de segurança"].map((l) => (
+                  <li key={l}>
+                    <a
+                      href="#"
+                      className="inline-block transition-all duration-200 ease-out hover:translate-x-1 hover:text-black hover:font-medium"
+                    >
+                      {l}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-sm font-bold uppercase tracking-wider text-black">Contato</h4>
+              <ul className="mt-4 space-y-3 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <MapPin size={16} className="mt-0.5 shrink-0" /> Rua Bruno Veloso 603 - Recife. PE
                 </li>
-              ))}
-            </ul>
-          </div>
+                <li className="flex items-start gap-2">
+                  <Mail size={16} className="mt-0.5 shrink-0" /> contato@hubot.com.br
+                </li>
+                <li className="flex items-start gap-2">
+                  <MessageCircle size={16} className="mt-0.5 shrink-0" /> (11) 99999-9999
+                </li>
+              </ul>
+            </div>
 
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900">Contato</h4>
-            <ul className="mt-4 space-y-3 text-sm text-gray-600">
-              <li className="flex items-start gap-2">
-                <MapPin size={16} className="mt-0.5 shrink-0" /> Rua Bruno Veloso 603 - Recife. PE
-              </li>
-              <li className="flex items-start gap-2">
-                <Mail size={16} className="mt-0.5 shrink-0" /> contato@hubot.com.br
-              </li>
-              <li className="flex items-start gap-2">
-                <MessageCircle size={16} className="mt-0.5 shrink-0" /> (11) 99999-9999
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900">Newsletter</h4>
-            <p className="mt-4 text-sm text-gray-600">Receba dicas de atendimento e novidades.</p>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="mt-4 flex overflow-hidden rounded-md ring-1 ring-gray-300 focus-within:ring-black"
-            >
-              <input
-                type="email"
-                placeholder="seu@email.com"
-                className="flex-1 bg-white px-3 py-2.5 text-sm outline-none"
-              />
-              <button className="bg-black px-4 text-[#ffd33d] transition-colors hover:bg-gray-900">
-                <ArrowRight size={18} />
-              </button>
-            </form>
+            <div>
+              <h4 className="text-sm font-bold uppercase tracking-wider text-black">Newsletter</h4>
+              <p className="mt-4 text-sm text-gray-700">Receba dicas de atendimento e novidades.</p>
+              <form
+                onSubmit={(e) => e.preventDefault()}
+                className="mt-4 flex overflow-hidden rounded-md ring-1 ring-gray-300"
+              >
+                <input
+                  type="email"
+                  placeholder="seu@email.com"
+                  className="flex-1 bg-white/80 px-3 py-2.5 text-sm transition-all duration-300 focus:ring-2 focus:ring-[#ffd33d] focus:bg-white focus:outline-none"
+                />
+                <button
+                  type="submit"
+                  className="group flex items-center justify-center bg-black px-4 text-[#ffd33d] border-2 border-black transition-all duration-300 ease-out hover:bg-[#ffd33d] hover:text-black hover:border-black"
+                >
+                  <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+              </form>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-amber-200 pt-6 text-xs text-gray-600 sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} HUBOT — CNPJ 00.000.000/0001-00. Todos os direitos reservados.</p>
-          <div className="flex items-center gap-4 text-gray-700">
-            <a href="#" aria-label="Instagram" className="transition-colors hover:text-black">
-              <Instagram size={18} />
-            </a>
-            <a href="#" aria-label="LinkedIn" className="transition-colors hover:text-black">
-              <Linkedin size={18} />
-            </a>
-            <a href="#" aria-label="YouTube" className="transition-colors hover:text-black">
-              <Youtube size={18} />
-            </a>
-            <a href="#" aria-label="Facebook" className="transition-colors hover:text-black">
-              <Facebook size={18} />
-            </a>
+      {/* Bottom bar with dark spotlight */}
+      <div
+        onMouseMove={handleMouseMove}
+        className="relative overflow-hidden bg-neutral-900"
+        style={{
+          backgroundImage:
+            "radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,211,61,0.15), transparent 70%)",
+        }}
+      >
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-6">
+          <div className="flex flex-col items-start justify-between gap-4 text-xs text-gray-400 sm:flex-row sm:items-center">
+            <p>© {new Date().getFullYear()} HUBOT — CNPJ 00.000.000/0001-00. Todos os direitos reservados.</p>
+            <div className="flex items-center gap-5">
+              {[
+                { Icon: Instagram, label: "Instagram" },
+                { Icon: Linkedin, label: "LinkedIn" },
+                { Icon: Youtube, label: "YouTube" },
+                { Icon: Facebook, label: "Facebook" },
+              ].map(({ Icon, label }) => (
+                <a
+                  key={label}
+                  href="#"
+                  aria-label={label}
+                  className="text-gray-400 transition-all duration-300 ease-out hover:text-[#ffd33d] hover:scale-125 hover:drop-shadow-[0_0_8px_rgba(255,211,61,0.8)]"
+                >
+                  <Icon size={18} />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
