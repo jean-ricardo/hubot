@@ -395,7 +395,7 @@ function PainSolution() {
                 ))}
               </ul>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
