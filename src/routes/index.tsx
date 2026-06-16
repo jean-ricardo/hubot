@@ -203,12 +203,7 @@ function Hero() {
             transition={{ duration: 0.6, ease: easeOut, delay: 0.4 }}
             className="mt-10 flex items-center gap-6 text-xs text-gray-500"
           >
-            <span className="flex items-center gap-2">
-              <Check size={14} className="text-[#ffd33d]" /> Sem cartão de crédito
-            </span>
-            <span className="flex items-center gap-2">
-              <Check size={14} className="text-[#ffd33d]" /> Suporte humano
-            </span>
+            {/* Removed "Sem cartão de crédito" and "Suporte humano" spans */}
           </motion.div>
         </div>
 
