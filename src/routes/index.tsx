@@ -550,8 +550,8 @@ function FeatureZ2() {
           <div className="group rounded-3xl bg-white p-10 shadow-xl ring-1 ring-gray-100 transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
             <div className="flex items-center justify-between">
               <div className="flex flex-col items-center gap-2">
-                <div className="grid h-20 w-20 place-items-center rounded-2xl bg-green-500 text-white shadow-lg animate-pulse-soft">
-                  <MessageCircle size={36} />
+                <div className="grid h-20 w-20 place-items-center rounded-2xl bg-[#25D366] text-white shadow-lg animate-pulse-soft">
+                  <WhatsAppIcon size={38} />
                 </div>
                 <span className="text-sm font-semibold text-gray-700">WhatsApp</span>
               </div>
