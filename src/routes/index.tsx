@@ -84,29 +84,28 @@ function Navbar() {
     }
   };
   return (
-    <header className="sticky top-0 z-50 w-full bg-black/80 backdrop-blur-md border-b border-white/10">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-8 py-4">
+    <header className="absolute top-0 left-0 w-full z-50 bg-transparent">
+      <nav className="flex items-center justify-between py-6 px-8 md:px-16">
         <a
           href="#top"
           onClick={(e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
-          className="flex items-center"
+          className="flex items-center shrink-0"
           aria-label="HUBOT"
         >
           <img src={hubotWhite.url} alt="HUBOT" className="h-36 md:h-44 w-auto -my-10" />
         </a>
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-10 lg:gap-12">
           {links.map((l) => (
             <li key={l.id}>
               <a
                 href={`#${l.id}`}
                 onClick={(e) => scrollToSection(e, l.id)}
-                className="group relative text-sm font-medium text-gray-300 transition-colors duration-300 hover:text-white"
+                className="text-[17px] font-medium text-white/90 transition-all duration-300 hover:text-[#ffd33d] hover:drop-shadow-[0_0_8px_rgba(255,211,61,0.5)]"
               >
                 {l.label}
-                <span className="pointer-events-none absolute -bottom-1 left-0 h-0.5 w-0 bg-[#ffd33d] transition-all duration-300 group-hover:w-full" />
               </a>
             </li>
           ))}
@@ -114,7 +113,7 @@ function Navbar() {
         <a
           href="#demo"
           onClick={(e) => scrollToSection(e, "demo")}
-          className="inline-flex items-center rounded-lg bg-[#ffd33d] px-6 py-2.5 text-sm font-bold text-black transition-all duration-300 hover:bg-[#e6be2e] hover:scale-105 hover:shadow-[0_0_20px_rgba(255,211,61,0.4)]"
+          className="inline-flex items-center rounded-full bg-[#ffd33d] px-8 py-3.5 text-lg font-extrabold text-black transition-all duration-300 ease-out hover:scale-105 hover:bg-[#ffdf66] hover:shadow-[0_10px_30px_rgba(255,211,61,0.4)]"
         >
           Teste Grátis
         </a>
