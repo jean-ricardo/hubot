@@ -879,8 +879,78 @@ function Pricing() {
           })}
         </div>
       </div>
+
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-sm transition-all p-4"
+          onClick={() => setIsModalOpen(false)}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.2, ease: easeOut }}
+            className="bg-white w-full max-w-md rounded-2xl p-8 shadow-2xl relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              aria-label="Fechar"
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition-colors cursor-pointer"
+            >
+              <X size={20} />
+            </button>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Quase lá!</h3>
+            <p className="text-gray-500 mb-6">
+              Preencha seus dados para avançar para o cadastro e pagamento.
+            </p>
+            <form onSubmit={handleConfirm}>
+              <input
+                type="text"
+                required
+                placeholder="Nome completo"
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 w-full mb-4 focus:bg-white focus:border-[#ffd33d] focus:ring-2 focus:ring-[#ffd33d]/50 focus:outline-none transition-all"
+              />
+              <input
+                type="email"
+                required
+                placeholder="E-mail"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 w-full mb-4 focus:bg-white focus:border-[#ffd33d] focus:ring-2 focus:ring-[#ffd33d]/50 focus:outline-none transition-all"
+              />
+              <input
+                type="tel"
+                required
+                placeholder="WhatsApp"
+                value={form.whatsapp}
+                onChange={(e) => setForm({ ...form, whatsapp: e.target.value })}
+                className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 w-full mb-4 focus:bg-white focus:border-[#ffd33d] focus:ring-2 focus:ring-[#ffd33d]/50 focus:outline-none transition-all"
+              />
+              <div className="flex justify-end gap-3 mt-6">
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(false)}
+                  className="px-6 py-2.5 rounded-lg text-gray-600 font-medium hover:bg-gray-100 transition-colors cursor-pointer"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="submit"
+                  className="px-6 py-2.5 rounded-lg bg-[#ffd33d] text-black font-bold hover:scale-105 hover:bg-[#ffdf66] hover:shadow-lg transition-all cursor-pointer"
+                >
+                  Confirmar
+                </button>
+              </div>
+            </form>
+          </motion.div>
+        </div>
+      )}
     </section>
   );
+
 }
 
 /* -------------------- FOOTER -------------------- */
