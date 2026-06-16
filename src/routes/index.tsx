@@ -221,7 +221,7 @@ function Hero() {
                 <span className="grid h-5 w-5 place-items-center rounded bg-[#ffd33d] text-black">
                   <Bot size={11} />
                 </span>
-                HUBOT Live
+                HUBOT&nbsp;
               </div>
               <div className="flex-1 space-y-2 p-3">
                 <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-sm bg-black px-3 py-2 text-[10px] text-white">
