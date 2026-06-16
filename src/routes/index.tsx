@@ -70,7 +70,7 @@ function Navbar() {
   const links = [
     { label: "O que é", href: "#sobre" },
     { label: "Funcionalidades", href: "#funcionalidades" },
-    { label: "Integração TOTVS", href: "#totvs" },
+    { label: "Integração Protheus", href: "#totvs" },
     { label: "Planos", href: "#planos" },
   ];
   return (
@@ -154,7 +154,7 @@ function Hero() {
             transition={{ duration: 0.6, ease: easeOut, delay: 0.2 }}
             className="mt-6 max-w-xl text-lg text-gray-400"
           >
-            Centralize WhatsApp, Instagram, Telegram e Messenger num único painel. Integre com TOTVS,
+            Centralize WhatsApp, Instagram, Telegram e Messenger num único painel. Integre com Protheus,
             organize com Kanban e venda mais com múltiplos atendentes.
           </motion.p>
           <motion.div
@@ -299,7 +299,7 @@ function PainSolution() {
     "Histórico completo de cada cliente",
     "Dashboards e métricas em tempo real",
     "Respostas rápidas e automações inteligentes",
-    "Integração nativa com TOTVS e ERPs",
+    "Integração nativa com Protheus e ERPs",
   ];
 
   const [spot, setSpot] = useState<{ x: number; y: number } | null>(null);
@@ -490,7 +490,7 @@ function FeatureZ2() {
             Integração
           </span>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            Integração nativa com TOTVS
+            Integração nativa com Protheus
           </h2>
           <p className="mt-4 text-lg text-gray-600">
             Consulte pedidos, boletos, notas fiscais e estoque diretamente no chat. Seu atendimento
@@ -541,8 +541,8 @@ function FeatureZ2() {
                 </div>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <div className="grid h-20 w-20 place-items-center rounded-2xl bg-blue-600 text-white text-xs font-extrabold tracking-wide shadow-lg animate-pulse-soft [animation-delay:1s]">
-                  TOTVS
+                <div className="grid h-20 w-20 place-items-center rounded-2xl bg-blue-600 text-white text-[10px] font-extrabold tracking-wide shadow-lg animate-pulse-soft [animation-delay:1s] text-center px-1">
+                  Protheus
                 </div>
                 <span className="text-sm font-semibold text-gray-700">ERP</span>
               </div>
@@ -744,10 +744,10 @@ function Pricing() {
       desc: "O mais escolhido pelas equipes",
       highlight: true,
       features: [
-        "Números ilimitados",
+        "3 números\u00a0",
         "30 atendentes",
-        "Integração TOTVS",
-        "Chatbot com IA",
+        "Integração Protheus",
+        "IA",
         "Relatórios avançados",
         "Suporte 24/7",
       ],
@@ -756,7 +756,7 @@ function Pricing() {
       name: "Enterprise",
       price: "A Consultar",
       desc: "Operações em larga escala",
-      features: ["Atendentes ilimitados", "API dedicada", "SLA garantido", "Customizações", "CSM dedicado"],
+      features: ["Atendentes personalizados", "API dedicada", "SLA garantido", "Customizações", "CSM dedicado"],
     },
   ];
 
