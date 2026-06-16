@@ -993,11 +993,11 @@ function Footer() {
 function WhatsAppFab() {
   return (
     <a
-      href="https://wa.me/5511999999999"
+      href="https://wa.me/5581996696708?text=Ol%C3%A1%21+Estava+navegando+no+site+do+HUBOT+e+gostaria+de+saber+como+a+plataforma+pode+automatizar+e+estruturar+o+atendimento+da+minha+empresa.+Podemos+conversar%3F"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Fale conosco no WhatsApp"
-      className="fixed bottom-6 right-6 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#ffd33d] text-black shadow-xl transition-transform hover:scale-110 animate-pulse-ring"
+      className="fixed bottom-6 right-6 z-[100] grid h-14 w-14 place-items-center rounded-full bg-[#ffd33d] text-black shadow-xl transition-transform duration-300 hover:scale-110 hover:shadow-2xl animate-pulse-ring"
     >
       <MessageCircle size={28} strokeWidth={2.4} />
     </a>
