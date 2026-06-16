@@ -748,6 +748,14 @@ function DemoLead() {
 
 /* -------------------- PRICING -------------------- */
 function Pricing() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", whatsapp: "" });
+
+  const handleConfirm = (e: React.FormEvent) => {
+    e.preventDefault();
+    window.location.href = "https://chat.hubot.app.br/signup";
+  };
+
   const plans = [
     {
       name: "Starter",
