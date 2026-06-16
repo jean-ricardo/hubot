@@ -68,32 +68,53 @@ function Landing() {
 /* -------------------- NAVBAR -------------------- */
 function Navbar() {
   const links = [
-    { label: "O que é", href: "#sobre" },
-    { label: "Funcionalidades", href: "#funcionalidades" },
-    { label: "Integração Protheus", href: "#totvs" },
-    { label: "Planos", href: "#planos" },
+    { label: "O que é", id: "about" },
+    { label: "Funcionalidades", id: "features" },
+    { label: "Integração Protheus", id: "integration" },
+    { label: "Planos", id: "pricing" },
   ];
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    }
+  };
   return (
-    <header className="sticky top-0 z-40 w-full bg-black/95 backdrop-blur border-b border-white/5">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 py-4">
-        <a href="#top" className="flex items-center" aria-label="HUBOT">
+    <header className="sticky top-0 z-50 w-full bg-black/80 backdrop-blur-md border-b border-white/10">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-8 py-4">
+        <a
+          href="#top"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          className="flex items-center"
+          aria-label="HUBOT"
+        >
           <img src={hubotWhite.url} alt="HUBOT" className="h-36 md:h-44 w-auto -my-10" />
         </a>
         <ul className="hidden md:flex items-center gap-8">
           {links.map((l) => (
-            <li key={l.href}>
+            <li key={l.id}>
               <a
-                href={l.href}
-                className="text-sm font-medium text-white/90 transition-colors hover:text-[#ffd33d]"
+                href={`#${l.id}`}
+                onClick={(e) => scrollToSection(e, l.id)}
+                className="group relative text-sm font-medium text-gray-300 transition-colors duration-300 hover:text-white"
               >
                 {l.label}
+                <span className="pointer-events-none absolute -bottom-1 left-0 h-0.5 w-0 bg-[#ffd33d] transition-all duration-300 group-hover:w-full" />
               </a>
             </li>
           ))}
         </ul>
         <a
           href="#demo"
-          className="inline-flex items-center rounded-md border border-[#ffd33d] px-4 py-2 text-sm font-semibold text-[#ffd33d] transition-all hover:bg-[#ffd33d] hover:text-black hover:shadow-md"
+          onClick={(e) => scrollToSection(e, "demo")}
+          className="inline-flex items-center rounded-lg bg-[#ffd33d] px-6 py-2.5 text-sm font-bold text-black transition-all duration-300 hover:bg-[#e6be2e] hover:scale-105 hover:shadow-[0_0_20px_rgba(255,211,61,0.4)]"
         >
           Teste Grátis
         </a>
