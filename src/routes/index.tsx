@@ -146,7 +146,7 @@ function Hero() {
             "radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 211, 61, 0.255), transparent 40%)",
         }}
       />
-      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 md:py-24 lg:grid-cols-2">
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 pt-36 md:pt-48 pb-20 md:pb-24 lg:grid-cols-2">
 
 
 
