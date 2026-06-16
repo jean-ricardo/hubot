@@ -1052,7 +1052,7 @@ function Footer() {
         />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-6">
           <div className="flex flex-col items-start justify-between gap-4 text-xs text-gray-400 sm:flex-row sm:items-center">
-            <p>© {new Date().getFullYear()} HUBOT — CNPJ 00.000.000/0001-00. Todos os direitos reservados.</p>
+            <p>© 2023&nbsp;HUBOT — CNPJ 00.000.000/0001-00. Todos os direitos reservados.</p>
             <div className="flex items-center gap-5">
               {[
                 { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/hubot_oficial/" },
