@@ -185,6 +185,14 @@ function Hero() {
           >
             <a
               href="#demo"
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.getElementById("demo");
+                if (el) {
+                  const y = el.getBoundingClientRect().top + window.pageYOffset - 40;
+                  window.scrollTo({ top: y, behavior: "smooth" });
+                }
+              }}
               className="inline-flex items-center justify-center rounded-md bg-[#ffd33d] px-6 py-3.5 text-sm font-bold text-black shadow-md transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(255,211,61,0.4)]"
             >
               Teste 7 dias grátis
