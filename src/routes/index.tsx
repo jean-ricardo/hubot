@@ -333,7 +333,7 @@ function PainSolution() {
   };
 
   return (
-    <section id="sobre" className="bg-[#f9fafb]">
+    <section id="about" className="bg-[#f9fafb]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-20 md:py-24">
         <div className="mx-auto max-w-2xl text-center animate-fade-in-up">
           <span className="text-sm font-bold uppercase tracking-wider text-[#ffd33d]">
@@ -445,7 +445,7 @@ function VideoPlaceholder({ ratio = "16/9", label }: { ratio?: string; label: st
 
 function FeatureZ1() {
   return (
-    <section id="funcionalidades" className="bg-white">
+    <section id="features" className="bg-white">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -498,7 +498,7 @@ function FeatureZ1() {
 
 function FeatureZ2() {
   return (
-    <section id="totvs" className="bg-gray-50">
+    <section id="integration" className="bg-gray-50">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -782,7 +782,7 @@ function Pricing() {
   ];
 
   return (
-    <section id="planos" className="bg-white">
+    <section id="pricing" className="bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-20 md:py-24">
         <Reveal y={24} className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-bold uppercase tracking-wider text-amber-700">Planos</span>
