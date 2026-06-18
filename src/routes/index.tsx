@@ -1009,10 +1009,10 @@ function Footer() {
                   <MapPin size={16} className="mt-0.5 shrink-0" /> Rua Bruno Veloso 603 - Recife. PE
                 </li>
                 <li className="flex items-start gap-2">
-                  <Mail size={16} className="mt-0.5 shrink-0" /> contato@hubot.com.br
+                  <Mail size={16} className="mt-0.5 shrink-0" /> diego@hubvision.com.br
                 </li>
                 <li className="flex items-start gap-2">
-                  <MessageCircle size={16} className="mt-0.5 shrink-0" /> (11) 99999-9999
+                  <MessageCircle size={16} className="mt-0.5 shrink-0" /> (81) 99669-6708
                 </li>
               </ul>
             </div>
