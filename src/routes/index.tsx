@@ -976,9 +976,9 @@ function Footer() {
         />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-16">
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 items-start">
-            <div className="flex flex-col items-start justify-start gap-6">
-              <a href="#top" className="flex items-center -mt-2" aria-label="HUBOT">
-                <img src={hubotBlack.url} alt="HUBOT" className="h-12 w-auto" />
+            <div className="flex flex-col items-start justify-start gap-6 mt-0 pt-0">
+              <a href="#top" className="flex items-center mt-1" aria-label="HUBOT">
+                <img src={hubotBlack.url} alt="HUBOT" className="w-32 md:w-40 h-auto shrink-0 object-contain" />
               </a>
               <p className="text-sm leading-relaxed text-gray-700">
                 Conectamos empresas e clientes com tecnologia, dados e empatia. O futuro do atendimento
