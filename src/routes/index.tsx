@@ -981,8 +981,7 @@ function Footer() {
                 <img src={hubotBlack.url} alt="HUBOT" className="w-32 md:w-40 h-auto shrink-0 object-contain" />
               </a>
               <p className="mt-4 text-sm leading-relaxed text-gray-700">
-                Conectamos empresas e clientes com tecnologia, dados e empatia. O futuro do atendimento
-                passa por conversas que importam.
+                {"\n"}
               </p>
             </div>
 
