@@ -289,7 +289,7 @@ function SocialProof() {
     { name: "Autonorte", src: logoAutonorte.url },
     { name: "Capetro", src: logoCapetro.url },
     { name: "Boku's", src: logoBokus.url },
-    { name: "Planejador de Sonhos", src: logoPlanejador.url },
+    { name: "Grau Técnico", src: logoGrauTecnico.url },
     { name: "Mauricea", src: logoMauricea.url },
     { name: "RM Polímeros", src: logoRmPolimeros.url },
     { name: "Damaq Equipamentos", src: logoDamaq.url },
