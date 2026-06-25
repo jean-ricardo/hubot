@@ -28,6 +28,16 @@ import {
   Youtube,
 } from "lucide-react";
 import hubotWhite from "@/assets/hubot-white.png.asset.json";
+import logoAmigotech from "@/assets/logos/amigotech.png.asset.json";
+import logoBiosystems from "@/assets/logos/biosystems.png.asset.json";
+import logoAsa from "@/assets/logos/asa.png.asset.json";
+import logoAutonorte from "@/assets/logos/autonorte.png.asset.json";
+import logoCapetro from "@/assets/logos/capetro.png.asset.json";
+import logoBokus from "@/assets/logos/bokus.png.asset.json";
+import logoPlanejador from "@/assets/logos/planejador.png.asset.json";
+import logoMauricea from "@/assets/logos/mauricea.png.asset.json";
+import logoRmPolimeros from "@/assets/logos/rmpolimeros.png.asset.json";
+import logoDamaq from "@/assets/logos/damaq.png.asset.json";
 import hubotBlack from "@/assets/hubot-black.png.asset.json";
 
 export const Route = createFileRoute("/")({
