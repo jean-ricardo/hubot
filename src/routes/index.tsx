@@ -34,7 +34,7 @@ import logoAsa from "@/assets/logos/asa.png.asset.json";
 import logoAutonorte from "@/assets/logos/autonorte.png.asset.json";
 import logoCapetro from "@/assets/logos/capetro.png.asset.json";
 import logoBokus from "@/assets/logos/bokus.png.asset.json";
-import logoPlanejador from "@/assets/logos/planejador.png.asset.json";
+import logoGrauTecnico from "@/assets/logos/grautecnico.png.asset.json";
 import logoMauricea from "@/assets/logos/mauricea.png.asset.json";
 import logoRmPolimeros from "@/assets/logos/rmpolimeros.png.asset.json";
 import logoDamaq from "@/assets/logos/damaq.png.asset.json";
