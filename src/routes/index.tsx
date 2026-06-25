@@ -283,16 +283,16 @@ function Hero() {
 /* -------------------- SOCIAL PROOF -------------------- */
 function SocialProof() {
   const logos: { name: string; src?: string }[] = [
-    { name: "Amigotech" },
-    { name: "BioSystems" },
-    { name: "Asa Locadora" },
-    { name: "Autonorte" },
-    { name: "Capetro" },
-    { name: "Bokus" },
-    { name: "Planejador de Sonhos" },
-    { name: "Mauricea" },
-    { name: "RM Polímeros" },
-    { name: "Damaq" },
+    { name: "Amigotech", src: logoAmigotech.url },
+    { name: "BioSystems", src: logoBiosystems.url },
+    { name: "Asa Rent a Car", src: logoAsa.url },
+    { name: "Autonorte", src: logoAutonorte.url },
+    { name: "Capetro", src: logoCapetro.url },
+    { name: "Boku's", src: logoBokus.url },
+    { name: "Planejador de Sonhos", src: logoPlanejador.url },
+    { name: "Mauricea", src: logoMauricea.url },
+    { name: "RM Polímeros", src: logoRmPolimeros.url },
+    { name: "Damaq Equipamentos", src: logoDamaq.url },
   ];
 
   const renderLogo = (l: { name: string; src?: string }, i: number) =>
