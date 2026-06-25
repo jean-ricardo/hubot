@@ -301,12 +301,12 @@ function SocialProof() {
         key={i}
         src={l.src}
         alt={l.name}
-        className="h-16 md:h-24 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 mix-blend-multiply shrink-0"
+        className="h-[115px] md:h-[173px] w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 mix-blend-multiply shrink-0"
       />
     ) : (
       <span
         key={i}
-        className="h-16 md:h-24 flex items-center px-4 text-base md:text-lg font-extrabold tracking-tight text-black/80 opacity-80 hover:opacity-100 transition-opacity duration-300 shrink-0"
+        className="h-[115px] md:h-[173px] flex items-center px-4 text-base md:text-lg font-extrabold tracking-tight text-black/80 opacity-80 hover:opacity-100 transition-opacity duration-300 shrink-0"
       >
         {l.name}
       </span>
