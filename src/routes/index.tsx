@@ -272,19 +272,44 @@ function Hero() {
 
 /* -------------------- SOCIAL PROOF -------------------- */
 function SocialProof() {
-  const logos = [
-    "Amigotech", "Locavel", "RM Polímeros", "Bokus", "Autonorte", "Capetro",
-    "Foco", "Solplast", "Sport", "Vale - MonteRei", "Edilimp", "Divisão",
-    "Fruta Pluss", "Zero Um", "Provider", "Ultra",
+  const logos: { name: string; src?: string }[] = [
+    { name: "Amigotech" },
+    { name: "BioSystems" },
+    { name: "Asa Locadora" },
+    { name: "Autonorte" },
+    { name: "Capetro" },
+    { name: "Bokus" },
+    { name: "Planejador de Sonhos" },
+    { name: "Mauricea" },
+    { name: "RM Polímeros" },
+    { name: "Damaq" },
   ];
+
+  const renderLogo = (l: { name: string; src?: string }, i: number) =>
+    l.src ? (
+      <img
+        key={i}
+        src={l.src}
+        alt={l.name}
+        className="h-10 md:h-14 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 mix-blend-multiply shrink-0"
+      />
+    ) : (
+      <span
+        key={i}
+        className="h-10 md:h-14 flex items-center px-4 text-base md:text-lg font-extrabold tracking-tight text-black/80 opacity-80 hover:opacity-100 transition-opacity duration-300 shrink-0"
+      >
+        {l.name}
+      </span>
+    );
+
   return (
     <section className="w-full bg-[#ffd33d]">
       <Reveal y={32} duration={0.6} className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 sm:px-6 py-5 md:flex-row md:gap-8 md:py-6">
-        <h3 className="shrink-0 text-center text-base font-bold text-black md:text-left md:text-lg md:max-w-xs">
+        <h3 className="shrink-0 text-center text-base font-bold text-black md:text-left md:text-lg md:w-1/3 md:max-w-xs">
           Empresas estruturadas com a tecnologia HUBOT:
         </h3>
         <div
-          className="relative flex-1 overflow-hidden w-full"
+          className="relative md:w-2/3 flex-1 overflow-hidden whitespace-nowrap flex items-center w-full"
           style={{
             maskImage:
               "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
@@ -292,21 +317,18 @@ function SocialProof() {
               "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
           }}
         >
-          <div className="flex w-max animate-marquee whitespace-nowrap">
-            {[...logos, ...logos].map((l, i) => (
-              <span key={i} className="flex items-center">
-                <span className="mx-6 text-lg font-extrabold tracking-tight text-black/80">
-                  {l}
-                </span>
-                <span className="text-black/60">•</span>
-              </span>
-            ))}
+          <div className="flex shrink-0 items-center gap-12 md:gap-24 px-6 animate-[marquee_30s_linear_infinite]">
+            {logos.map(renderLogo)}
+          </div>
+          <div className="flex shrink-0 items-center gap-12 md:gap-24 px-6 animate-[marquee_30s_linear_infinite]" aria-hidden="true">
+            {logos.map(renderLogo)}
           </div>
         </div>
       </Reveal>
     </section>
   );
 }
+
 
 /* -------------------- PAIN vs SOLUTION -------------------- */
 function PainSolution() {
