@@ -206,16 +206,38 @@ function Footer() {
             <div>
               <h4 className="text-sm font-bold uppercase tracking-wider text-black">Links úteis</h4>
               <ul className="mt-4 space-y-2 text-sm text-gray-700">
-                {["Política de privacidade", "Termos de uso", "LGPD", "Política de segurança"].map((l) => (
-                  <li key={l}>
-                    <a
-                      href="#"
-                      className="inline-block transition-all duration-200 ease-out hover:translate-x-1 hover:text-black hover:font-medium"
-                    >
-                      {l}
-                    </a>
-                  </li>
-                ))}
+                <li>
+                  <a
+                    href="#"
+                    className="inline-block transition-all duration-200 ease-out hover:translate-x-1 hover:text-black hover:font-medium"
+                  >
+                    Política de privacidade
+                  </a>
+                </li>
+                <li>
+                  <Link
+                    to="/termos-de-uso"
+                    className="inline-block transition-all duration-200 ease-out hover:translate-x-1 hover:text-black hover:font-medium"
+                  >
+                    Termos de uso
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="inline-block transition-all duration-200 ease-out hover:translate-x-1 hover:text-black hover:font-medium"
+                  >
+                    LGPD
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="inline-block transition-all duration-200 ease-out hover:translate-x-1 hover:text-black hover:font-medium"
+                  >
+                    Política de segurança
+                  </a>
+                </li>
               </ul>
             </div>
 
