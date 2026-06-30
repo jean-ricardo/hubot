@@ -264,26 +264,6 @@ function Footer() {
               </ul>
             </div>
 
-            <div>
-              <h4 className="text-sm font-bold uppercase tracking-wider text-black">Newsletter</h4>
-              <p className="mt-4 text-sm text-gray-700">Receba dicas de atendimento e novidades.</p>
-              <form
-                onSubmit={(e) => e.preventDefault()}
-                className="mt-4 flex overflow-hidden rounded-md ring-1 ring-gray-300"
-              >
-                <input
-                  type="email"
-                  placeholder="seu@email.com"
-                  className="flex-1 bg-white/80 px-3 py-2.5 text-sm transition-all duration-300 focus:ring-2 focus:ring-[#ffd33d] focus:bg-white focus:outline-none"
-                />
-                <button
-                  type="submit"
-                  className="group flex items-center justify-center bg-black px-4 text-[#ffd33d] border-2 border-black transition-all duration-300 ease-out hover:bg-[#ffd33d] hover:text-black hover:border-black"
-                >
-                  <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-                </button>
-              </form>
-            </div>
           </div>
         </div>
       </div>
