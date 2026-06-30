@@ -203,7 +203,7 @@ function Footer() {
           }}
         />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-16">
-          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 items-start">
+          <div className="grid gap-10 md:grid-cols-3 items-start">
             <div className="flex flex-col items-start justify-start">
               <a href="#top" className="flex items-center" aria-label="HUBOT">
                 <img src={hubotBlack.url} alt="HUBOT" className="w-32 md:w-40 h-auto shrink-0 object-contain" />
@@ -264,26 +264,6 @@ function Footer() {
               </ul>
             </div>
 
-            <div>
-              <h4 className="text-sm font-bold uppercase tracking-wider text-black">Newsletter</h4>
-              <p className="mt-4 text-sm text-gray-700">Receba dicas de atendimento e novidades.</p>
-              <form
-                onSubmit={(e) => e.preventDefault()}
-                className="mt-4 flex overflow-hidden rounded-md ring-1 ring-gray-300"
-              >
-                <input
-                  type="email"
-                  placeholder="seu@email.com"
-                  className="flex-1 bg-white/80 px-3 py-2.5 text-sm transition-all duration-300 focus:ring-2 focus:ring-[#ffd33d] focus:bg-white focus:outline-none"
-                />
-                <button
-                  type="submit"
-                  className="group flex items-center justify-center bg-black px-4 text-[#ffd33d] border-2 border-black transition-all duration-300 ease-out hover:bg-[#ffd33d] hover:text-black hover:border-black"
-                >
-                  <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-                </button>
-              </form>
-            </div>
           </div>
         </div>
       </div>
