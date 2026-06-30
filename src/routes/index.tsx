@@ -693,11 +693,40 @@ function AdvancedGrid() {
 /* -------------------- DEMO LEAD -------------------- */
 function DemoLead() {
   const demoRef = useRef<HTMLElement>(null);
+  const [formData, setFormData] = useState({ nome: "", email: "", whatsapp: "", empresa: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      const response = await fetch(
+        "https://workflows.hubot.app.br/webhook/1e8fab89-9df3-4408-97ab-a39871680bfd",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        },
+      );
+      if (response.ok) {
+        setIsSuccess(true);
+        setFormData({ nome: "", email: "", whatsapp: "", empresa: "" });
+        setTimeout(() => setIsSuccess(false), 4000);
+      }
+    } catch (error) {
+      console.error("Erro ao enviar formulário:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const handleDemoMouseMove = (e: React.MouseEvent) => {
     if (!demoRef.current) return;
     const rect = demoRef.current.getBoundingClientRect();
     demoRef.current.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
     demoRef.current.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+
   };
   return (
     <section
