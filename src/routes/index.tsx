@@ -693,11 +693,40 @@ function AdvancedGrid() {
 /* -------------------- DEMO LEAD -------------------- */
 function DemoLead() {
   const demoRef = useRef<HTMLElement>(null);
+  const [formData, setFormData] = useState({ nome: "", email: "", whatsapp: "", empresa: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      const response = await fetch(
+        "https://workflows.hubot.app.br/webhook/1e8fab89-9df3-4408-97ab-a39871680bfd",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        },
+      );
+      if (response.ok) {
+        setIsSuccess(true);
+        setFormData({ nome: "", email: "", whatsapp: "", empresa: "" });
+        setTimeout(() => setIsSuccess(false), 4000);
+      }
+    } catch (error) {
+      console.error("Erro ao enviar formulário:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const handleDemoMouseMove = (e: React.MouseEvent) => {
     if (!demoRef.current) return;
     const rect = demoRef.current.getBoundingClientRect();
     demoRef.current.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
     demoRef.current.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+
   };
   return (
     <section
@@ -738,25 +767,28 @@ function DemoLead() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.75, ease: easeOut, delay: 0.15 }}
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={handleSubmit}
           className="rounded-2xl bg-white p-8 text-gray-900 shadow-2xl transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
         >
           <h3 className="text-2xl font-extrabold tracking-tight">Solicite uma demonstração</h3>
           <p className="mt-1 text-sm text-gray-500">Resposta em até 1 hora útil.</p>
           <div className="mt-6 space-y-4">
             {[
-              { label: "Nome completo", type: "text", placeholder: "Seu nome" },
-              { label: "Email corporativo", type: "email", placeholder: "voce@empresa.com" },
-              { label: "WhatsApp", type: "tel", placeholder: "(00) 00000-0000" },
-              { label: "Empresa", type: "text", placeholder: "Nome da empresa" },
+              { label: "Nome completo", type: "text", placeholder: "Seu nome", name: "nome" as const },
+              { label: "Email corporativo", type: "email", placeholder: "voce@empresa.com", name: "email" as const },
+              { label: "WhatsApp", type: "tel", placeholder: "(00) 00000-0000", name: "whatsapp" as const },
+              { label: "Empresa", type: "text", placeholder: "Nome da empresa", name: "empresa" as const },
             ].map((f) => (
-              <div key={f.label}>
+              <div key={f.name}>
                 <label className="text-xs font-semibold uppercase tracking-wider text-gray-600">
                   {f.label}
                 </label>
                 <input
                   type={f.type}
                   placeholder={f.placeholder}
+                  value={formData[f.name]}
+                  onChange={(e) => setFormData({ ...formData, [f.name]: e.target.value })}
+                  required
                   className="mt-1 w-full rounded-md bg-gray-50 border border-gray-200 px-4 py-3 text-sm transition-colors duration-200 hover:bg-gray-100 focus:bg-white focus:border-[#ffd33d] focus:ring-2 focus:ring-[#ffd33d]/50 focus:outline-none"
                 />
               </div>
@@ -764,10 +796,18 @@ function DemoLead() {
           </div>
           <button
             type="submit"
-            className="mt-6 w-full rounded-md bg-[#ffd33d] py-4 text-sm font-extrabold uppercase tracking-wider text-black shadow-md transition-all duration-300 ease-out hover:bg-[#e6be2e] hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(255,211,61,0.3)] active:translate-y-0 active:shadow-none"
+            disabled={isSubmitting || isSuccess}
+            className={`mt-6 w-full rounded-md py-4 text-sm font-extrabold uppercase tracking-wider shadow-md transition-all duration-300 ease-out ${
+              isSuccess
+                ? "bg-green-500 text-white"
+                : isSubmitting
+                  ? "bg-[#ffd33d] text-black opacity-60 cursor-not-allowed"
+                  : "bg-[#ffd33d] text-black hover:bg-[#e6be2e] hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(255,211,61,0.3)] active:translate-y-0 active:shadow-none"
+            }`}
           >
-            Solicitar
+            {isSuccess ? "Solicitação Enviada! ✔️" : isSubmitting ? "Enviando..." : "Solicitar"}
           </button>
+
           <p className="mt-3 text-center text-xs text-gray-500">
             Ao enviar, você concorda com nossa política de privacidade.
           </p>
