@@ -1047,7 +1047,7 @@ function Footer() {
           }}
         />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-16">
-          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 items-start">
+          <div className="grid gap-10 md:grid-cols-3 items-start">
             <div className="flex flex-col items-start justify-start">
               <a href="#top" className="flex items-center" aria-label="HUBOT">
                 <img src={hubotBlack.url} alt="HUBOT" className="w-32 md:w-40 h-auto shrink-0 object-contain" />
