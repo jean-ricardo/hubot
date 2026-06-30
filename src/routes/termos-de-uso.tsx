@@ -7,6 +7,7 @@ import {
   ArrowRight,
   Instagram,
   Linkedin,
+  ArrowLeft,
 } from "lucide-react";
 import hubotBlack from "@/assets/hubot-black.png.asset.json";
 
