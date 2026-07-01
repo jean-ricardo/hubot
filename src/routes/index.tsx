@@ -28,6 +28,7 @@ import {
   Youtube,
 } from "lucide-react";
 import hubotWhite from "@/assets/hubot-white.png.asset.json";
+import videoHubotMultiplos from "@/assets/Video_Hubot_-_Multiplos.mp4.asset.json";
 import logoAmigotech from "@/assets/logos/amigotech.png.asset.json";
 import logoBiosystems from "@/assets/logos/biosystems.png.asset.json";
 import logoAsa from "@/assets/logos/asa.png.asset.json";
