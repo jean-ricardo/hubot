@@ -28,6 +28,7 @@ import {
   Youtube,
 } from "lucide-react";
 import hubotWhite from "@/assets/hubot-white.png.asset.json";
+import videoHubotMultiplos from "@/assets/Video_Hubot_-_Multiplos.mp4.asset.json";
 import logoAmigotech from "@/assets/logos/amigotech.png.asset.json";
 import logoBiosystems from "@/assets/logos/biosystems.png.asset.json";
 import logoAsa from "@/assets/logos/asa.png.asset.json";
@@ -487,7 +488,14 @@ function FeatureZ1() {
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.7, ease: easeOut }}
         >
-          <VideoPlaceholder label="Painel de atendimento ao vivo" />
+          <video
+            src={videoHubotMultiplos.url}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-auto object-cover rounded-2xl shadow-2xl overflow-hidden"
+          />
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 40 }}
