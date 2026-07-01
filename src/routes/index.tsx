@@ -488,7 +488,14 @@ function FeatureZ1() {
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.7, ease: easeOut }}
         >
-          <VideoPlaceholder label="Painel de atendimento ao vivo" />
+          <video
+            src={videoHubotMultiplos.url}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-auto object-cover rounded-2xl shadow-2xl overflow-hidden"
+          />
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 40 }}
