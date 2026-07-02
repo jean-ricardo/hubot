@@ -29,7 +29,7 @@ import {
 } from "lucide-react";
 import hubotWhite from "@/assets/hubot-white.png.asset.json";
 import videoHubotMultiplos from "@/assets/Video_Hubot_-_Multiplos.mp4.asset.json";
-import videoKanban from "@/assets/Videos_tela_Kanban_-_Hubot.mp4.asset.json";
+import videoHubotKanban from "@/assets/Video_Hubot_Kanban.mp4.asset.json";
 import logoAmigotech from "@/assets/logos/amigotech.png.asset.json";
 import logoBiosystems from "@/assets/logos/biosystems.png.asset.json";
 import logoAsa from "@/assets/logos/asa.png.asset.json";
@@ -634,7 +634,7 @@ function FeatureZ3() {
           transition={{ duration: 0.7, ease: easeOut }}
         >
           <video
-            src={videoKanban.url}
+            src={videoHubotKanban.url}
             autoPlay
             loop
             muted
