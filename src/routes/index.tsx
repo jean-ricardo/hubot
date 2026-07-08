@@ -30,6 +30,7 @@ import {
 import hubotWhite from "@/assets/hubot-white.png.asset.json";
 import videoHubotMultiplos from "@/assets/Video_Hubot_-_Multiplos.mp4.asset.json";
 import videoHubotKanban from "@/assets/Video_Hubot_Kanban.mp4.asset.json";
+import videoHubotTelaGeral from "@/assets/Video_Hubot_-_tela_geral_1.mp4.asset.json";
 import logoAmigotech from "@/assets/logos/amigotech.png.asset.json";
 import logoBiosystems from "@/assets/logos/biosystems.png.asset.json";
 import logoAsa from "@/assets/logos/asa.png.asset.json";
@@ -774,8 +775,18 @@ function DemoLead() {
           <p className="mt-4 text-gray-400">
             Um especialista mostra a plataforma na prática, com casos reais aplicados ao seu segmento.
           </p>
-          <div id="video" className="mt-8">
-            <VideoPlaceholder label="Tour completo da plataforma" />
+          <div id="video" className="relative mt-8 rounded-2xl shadow-2xl overflow-hidden">
+            <video
+              src={videoHubotTelaGeral.url}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
+            <span className="absolute bottom-4 left-4 z-10 bg-black/80 text-white px-3 py-1.5 text-sm font-medium rounded-lg backdrop-blur-sm">
+              Tour completo da plataforma
+            </span>
           </div>
         </motion.div>
 
