@@ -908,7 +908,10 @@ WhatsApp: ${form.whatsapp}`;
                 </ul>
                 <button
                   type="button"
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={() => {
+                    setSelectedPlan(p.name);
+                    setIsModalOpen(true);
+                  }}
                   className={`mt-8 inline-flex w-full items-center justify-center rounded-md py-3 text-sm font-bold transition-all duration-300 cursor-pointer ${
                     hl
                       ? "bg-black text-white hover:shadow-[0_0_24px_rgba(0,0,0,0.45)] animate-pulse-ring"
