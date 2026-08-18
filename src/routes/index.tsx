@@ -123,13 +123,12 @@ function Navbar() {
             </li>
           ))}
         </ul>
-        <a
-          href="#demo"
-          onClick={(e) => scrollToSection(e, "demo")}
+        <Link
+          to="/demonstracao"
           className="inline-flex items-center rounded-full bg-[#ffd33d] px-8 py-3.5 text-lg font-extrabold text-black transition-all duration-300 ease-out hover:scale-105 hover:bg-[#ffdf66] hover:shadow-[0_10px_30px_rgba(255,211,61,0.4)]"
         >
           Teste Grátis
-        </a>
+        </Link>
       </nav>
     </header>
   );
@@ -196,20 +195,12 @@ function Hero() {
             transition={{ duration: 0.6, ease: easeOut, delay: 0.3 }}
             className="mt-8 flex flex-wrap gap-4"
           >
-            <a
-              href="#demo"
-              onClick={(e) => {
-                e.preventDefault();
-                const el = document.getElementById("demo");
-                if (el) {
-                  const y = el.getBoundingClientRect().top + window.pageYOffset - 40;
-                  window.scrollTo({ top: y, behavior: "smooth" });
-                }
-              }}
+            <Link
+              to="/demonstracao"
               className="inline-flex items-center justify-center rounded-md bg-[#ffd33d] px-6 py-3.5 text-sm font-bold text-black shadow-md transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(255,211,61,0.4)]"
             >
               Teste 7 dias grátis
-            </a>
+            </Link>
             <a
               href="#video"
               className="inline-flex items-center gap-2 rounded-md border border-white/40 bg-transparent px-6 py-3.5 text-sm font-semibold text-white transition-all hover:border-[#ffd33d] hover:-translate-y-1 hover:bg-white/5"
@@ -711,41 +702,14 @@ function AdvancedGrid() {
 /* -------------------- DEMO LEAD -------------------- */
 function DemoLead() {
   const demoRef = useRef<HTMLElement>(null);
-  const [formData, setFormData] = useState({ nome: "", email: "", whatsapp: "", empresa: "" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    try {
-      const response = await fetch(
-        "https://workflows.hubot.app.br/webhook/1e8fab89-9df3-4408-97ab-a39871680bfd",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        },
-      );
-      if (response.ok) {
-        setIsSuccess(true);
-        setFormData({ nome: "", email: "", whatsapp: "", empresa: "" });
-        setTimeout(() => setIsSuccess(false), 4000);
-      }
-    } catch (error) {
-      console.error("Erro ao enviar formulário:", error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const handleDemoMouseMove = (e: React.MouseEvent) => {
     if (!demoRef.current) return;
     const rect = demoRef.current.getBoundingClientRect();
     demoRef.current.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
     demoRef.current.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
-
   };
+
   return (
     <section
       id="demo"
@@ -790,57 +754,31 @@ function DemoLead() {
           </div>
         </motion.div>
 
-        <motion.form
+        <motion.div
           initial={{ opacity: 0, y: 48 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.75, ease: easeOut, delay: 0.15 }}
-          onSubmit={handleSubmit}
-          className="rounded-2xl bg-white p-8 text-gray-900 shadow-2xl transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
+          className="rounded-2xl bg-white p-10 text-gray-900 shadow-2xl transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex flex-col items-center text-center"
         >
-          <h3 className="text-2xl font-extrabold tracking-tight">Solicite uma demonstração</h3>
-          <p className="mt-1 text-sm text-gray-500">Resposta em até 1 hora útil.</p>
-          <div className="mt-6 space-y-4">
-            {[
-              { label: "Nome completo", type: "text", placeholder: "Seu nome", name: "nome" as const },
-              { label: "Email corporativo", type: "email", placeholder: "voce@empresa.com", name: "email" as const },
-              { label: "WhatsApp", type: "tel", placeholder: "(00) 00000-0000", name: "whatsapp" as const },
-              { label: "Empresa", type: "text", placeholder: "Nome da empresa", name: "empresa" as const },
-            ].map((f) => (
-              <div key={f.name}>
-                <label className="text-xs font-semibold uppercase tracking-wider text-gray-600">
-                  {f.label}
-                </label>
-                <input
-                  type={f.type}
-                  placeholder={f.placeholder}
-                  value={formData[f.name]}
-                  onChange={(e) => setFormData({ ...formData, [f.name]: e.target.value })}
-                  required
-                  className="mt-1 w-full rounded-md bg-gray-50 border border-gray-200 px-4 py-3 text-sm transition-colors duration-200 hover:bg-gray-100 focus:bg-white focus:border-[#ffd33d] focus:ring-2 focus:ring-[#ffd33d]/50 focus:outline-none"
-                />
-              </div>
-            ))}
+          <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#ffd33d]/10 text-[#ffd33d]">
+            <Sparkles size={40} />
           </div>
-          <button
-            type="submit"
-            disabled={isSubmitting || isSuccess}
-            className={`mt-6 w-full rounded-md py-4 text-sm font-extrabold uppercase tracking-wider shadow-md transition-all duration-300 ease-out ${
-              isSuccess
-                ? "bg-green-500 text-white"
-                : isSubmitting
-                  ? "bg-[#ffd33d] text-black opacity-60 cursor-not-allowed"
-                  : "bg-[#ffd33d] text-black hover:bg-[#e6be2e] hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(255,211,61,0.3)] active:translate-y-0 active:shadow-none"
-            }`}
-          >
-            {isSuccess ? "Solicitação Enviada! ✔️" : isSubmitting ? "Enviando..." : "Solicitar"}
-          </button>
-
-          <p className="mt-3 text-center text-xs text-gray-500">
-            Ao enviar, você concorda com nossa política de privacidade.
+          <h3 className="text-3xl font-extrabold tracking-tight">Pronto para testar?</h3>
+          <p className="mt-4 text-lg text-gray-600">
+            Experimente gratuitamente e descubra como o HUBOT pode escalar o seu atendimento.
           </p>
-        </motion.form>
-
+          <Link
+            to="/demonstracao"
+            className="mt-10 inline-flex w-full items-center justify-center gap-3 rounded-md bg-[#ffd33d] py-5 text-lg font-extrabold uppercase tracking-wider text-black shadow-md transition-all duration-300 ease-out hover:bg-[#e6be2e] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,211,61,0.3)] active:translate-y-0 active:shadow-none"
+          >
+            Solicitar Demonstração Gratuita
+            <ArrowRight size={22} />
+          </Link>
+          <p className="mt-6 text-sm text-gray-400">
+            Sem compromisso • Ativação rápida • Suporte dedicado
+          </p>
+        </motion.div>
       </div>
     </section>
   );
@@ -849,12 +787,8 @@ function DemoLead() {
 /* -------------------- PRICING -------------------- */
 function Pricing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const [form, setForm] = useState({ name: "", email: "", whatsapp: "" });
-
-  const handleConfirm = (e: React.FormEvent) => {
-    e.preventDefault();
-    window.location.href = "https://chat.hubot.app.br/signup";
-  };
 
   const plans = [
     {
@@ -890,6 +824,16 @@ function Pricing() {
       features: ["Atendentes personalizados", "API dedicada", "SLA garantido", "Customizações", "CSM dedicado"],
     },
   ];
+
+  const handleConfirm = (e: React.FormEvent) => {
+    e.preventDefault();
+    const message = `Olá! Tenho interesse no plano ${selectedPlan}.
+Nome: ${form.name}
+E-mail: ${form.email}
+WhatsApp: ${form.whatsapp}`;
+    const encoded = encodeURIComponent(message);
+    window.location.href = `https://hubot.app.br/checkout?p=${selectedPlan?.toLowerCase()}&data=${encoded}`;
+  };
 
   return (
     <section id="pricing" className="bg-white">
@@ -964,7 +908,10 @@ function Pricing() {
                 </ul>
                 <button
                   type="button"
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={() => {
+                    setSelectedPlan(p.name);
+                    setIsModalOpen(true);
+                  }}
                   className={`mt-8 inline-flex w-full items-center justify-center rounded-md py-3 text-sm font-bold transition-all duration-300 cursor-pointer ${
                     hl
                       ? "bg-black text-white hover:shadow-[0_0_24px_rgba(0,0,0,0.45)] animate-pulse-ring"
@@ -1000,7 +947,7 @@ function Pricing() {
             >
               <X size={20} />
             </button>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Quase lá!</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Interesse no plano {selectedPlan}</h3>
             <p className="text-gray-500 mb-6">
               Preencha seus dados para avançar para o cadastro e pagamento.
             </p>
