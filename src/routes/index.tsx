@@ -947,7 +947,7 @@ WhatsApp: ${form.whatsapp}`;
             >
               <X size={20} />
             </button>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Quase lá!</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Interesse no plano {selectedPlan}</h3>
             <p className="text-gray-500 mb-6">
               Preencha seus dados para avançar para o cadastro e pagamento.
             </p>
