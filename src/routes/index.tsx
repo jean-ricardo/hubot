@@ -829,6 +829,16 @@ function Pricing() {
     },
   ];
 
+  const handleConfirm = (e: React.FormEvent) => {
+    e.preventDefault();
+    const message = `Olá! Tenho interesse no plano ${selectedPlan}.
+Nome: ${form.name}
+E-mail: ${form.email}
+WhatsApp: ${form.whatsapp}`;
+    const encoded = encodeURIComponent(message);
+    window.location.href = `https://hubot.app.br/checkout?p=${selectedPlan?.toLowerCase()}&data=${encoded}`;
+  };
+
   return (
     <section id="pricing" className="bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-20 md:py-24">
