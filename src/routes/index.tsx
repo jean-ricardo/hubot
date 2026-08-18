@@ -123,13 +123,12 @@ function Navbar() {
             </li>
           ))}
         </ul>
-        <a
-          href="#demo"
-          onClick={(e) => scrollToSection(e, "demo")}
+        <Link
+          to="/demonstracao"
           className="inline-flex items-center rounded-full bg-[#ffd33d] px-8 py-3.5 text-lg font-extrabold text-black transition-all duration-300 ease-out hover:scale-105 hover:bg-[#ffdf66] hover:shadow-[0_10px_30px_rgba(255,211,61,0.4)]"
         >
           Teste Grátis
-        </a>
+        </Link>
       </nav>
     </header>
   );
