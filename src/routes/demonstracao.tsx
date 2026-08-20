@@ -184,15 +184,6 @@ function Demonstracao() {
               {isSuccess ? "Solicitação Enviada! ✔️" : isSubmitting ? "Enviando..." : "Confirmar e Solicitar"}
             </button>
 
-            {error && (
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-4 rounded-md bg-red-50 p-3 text-xs font-medium text-red-600 border border-red-100"
-              >
-                {error}
-              </motion.div>
-            )}
 
             {isSuccess && (
               <motion.div 
