@@ -64,12 +64,11 @@ function Demonstracao() {
         setIsSuccess(true);
         setFormData({ nome: "", email: "", whatsapp: "", empresa: "" });
       } else {
-        const data = await response.json().catch(() => ({}));
-        setError(data.message || "Ocorreu um erro ao enviar sua solicitação. Por favor, tente novamente.");
+        // Log error internally but don't show to user as per request
+        console.error("Submission failed with status:", response.status);
       }
     } catch (err) {
       console.error("Erro ao enviar formulário:", err);
-      setError("Erro de conexão. Verifique sua internet e tente novamente.");
     } finally {
       setIsSubmitting(false);
     }
@@ -185,15 +184,6 @@ function Demonstracao() {
               {isSuccess ? "Solicitação Enviada! ✔️" : isSubmitting ? "Enviando..." : "Confirmar e Solicitar"}
             </button>
 
-            {error && (
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-4 rounded-md bg-red-50 p-3 text-xs font-medium text-red-600 border border-red-100"
-              >
-                {error}
-              </motion.div>
-            )}
 
             {isSuccess && (
               <motion.div 
