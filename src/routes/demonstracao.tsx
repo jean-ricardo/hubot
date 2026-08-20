@@ -38,11 +38,15 @@ function Demonstracao() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const demoRef = useRef<HTMLElement>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
+    setIsSuccess(false);
+
     try {
       const response = await fetch(
         "https://crm-rho-ruby.vercel.app/api/webhooks/leads",
@@ -55,13 +59,17 @@ function Demonstracao() {
           body: JSON.stringify(formData),
         }
       );
+
       if (response.ok) {
         setIsSuccess(true);
         setFormData({ nome: "", email: "", whatsapp: "", empresa: "" });
-        setTimeout(() => setIsSuccess(false), 4000);
+      } else {
+        const data = await response.json().catch(() => ({}));
+        setError(data.message || "Ocorreu um erro ao enviar sua solicitação. Por favor, tente novamente.");
       }
-    } catch (error) {
-      console.error("Erro ao enviar formulário:", error);
+    } catch (err) {
+      console.error("Erro ao enviar formulário:", err);
+      setError("Erro de conexão. Verifique sua internet e tente novamente.");
     } finally {
       setIsSubmitting(false);
     }
@@ -168,7 +176,7 @@ function Demonstracao() {
               disabled={isSubmitting || isSuccess}
               className={`mt-8 w-full rounded-md py-4 text-sm font-extrabold uppercase tracking-wider shadow-md transition-all duration-300 ease-out ${
                 isSuccess
-                  ? "bg-green-500 text-white"
+                  ? "bg-green-500 text-white cursor-default"
                   : isSubmitting
                     ? "bg-[#ffd33d] text-black opacity-60 cursor-not-allowed"
                     : "bg-[#ffd33d] text-black hover:bg-[#e6be2e] hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(255,211,61,0.3)] active:translate-y-0 active:shadow-none"
@@ -176,6 +184,26 @@ function Demonstracao() {
             >
               {isSuccess ? "Solicitação Enviada! ✔️" : isSubmitting ? "Enviando..." : "Confirmar e Solicitar"}
             </button>
+
+            {error && (
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-4 rounded-md bg-red-50 p-3 text-xs font-medium text-red-600 border border-red-100"
+              >
+                {error}
+              </motion.div>
+            )}
+
+            {isSuccess && (
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-4 rounded-md bg-green-50 p-3 text-xs font-medium text-green-700 border border-green-100"
+              >
+                Tudo pronto! Nossa equipe entrará em contato em breve.
+              </motion.div>
+            )}
 
             <p className="mt-4 text-center text-xs text-gray-400">
               Seus dados estão protegidos e serão usados apenas para o contato de demonstração.
