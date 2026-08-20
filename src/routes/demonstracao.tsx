@@ -64,12 +64,11 @@ function Demonstracao() {
         setIsSuccess(true);
         setFormData({ nome: "", email: "", whatsapp: "", empresa: "" });
       } else {
-        const data = await response.json().catch(() => ({}));
-        setError(data.message || "Ocorreu um erro ao enviar sua solicitação. Por favor, tente novamente.");
+        // Log error internally but don't show to user as per request
+        console.error("Submission failed with status:", response.status);
       }
     } catch (err) {
       console.error("Erro ao enviar formulário:", err);
-      setError("Erro de conexão. Verifique sua internet e tente novamente.");
     } finally {
       setIsSubmitting(false);
     }
