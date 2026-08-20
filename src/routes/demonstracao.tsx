@@ -45,10 +45,13 @@ function Demonstracao() {
     setIsSubmitting(true);
     try {
       const response = await fetch(
-        "https://workflows.hubot.app.br/webhook/225c5679-052e-4b47-a41e-62d98045612f",
+        "https://crm-rho-ruby.vercel.app/api/webhooks/leads",
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: { 
+            "Content-Type": "application/json",
+            "Authorization": "Bearer 514696d278fa7eab1af18e221a4e96ef4927c6b1c2bb77059e6e402016d99716"
+          },
           body: JSON.stringify(formData),
         }
       );
