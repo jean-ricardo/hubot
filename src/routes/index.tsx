@@ -827,15 +827,12 @@ function Pricing() {
 
   const handleConfirm = (e: React.FormEvent) => {
     e.preventDefault();
-    const phone = "5581996696708";
-    const priceText = plans.find((p) => p.name === selectedPlan)?.price || "";
-    const message = `Olá! Vim através do site e tenho interesse em contratar o HUBOT. Meu interesse é no plano ${selectedPlan} (${priceText}).
+    const message = `Olá! Tenho interesse no plano ${selectedPlan}.
 Nome: ${form.name}
 E-mail: ${form.email}
 WhatsApp: ${form.whatsapp}`;
     const encoded = encodeURIComponent(message);
-    window.open(`https://wa.me/${phone}?text=${encoded}`, "_blank");
-    setIsModalOpen(false);
+    window.location.href = `https://hubot.app.br/checkout?p=${selectedPlan?.toLowerCase()}&data=${encoded}`;
   };
 
   return (
